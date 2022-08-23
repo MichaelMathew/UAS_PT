@@ -7,6 +7,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "book", schema = "librarydb", catalog = "")
 public class BookEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "idBook")
+    private String idBook;
     @Basic
     @Column(name = "Cover")
     private String cover;
@@ -25,6 +29,9 @@ public class BookEntity {
     @Basic
     @Column(name = "Content")
     private String content;
+    @Basic
+    @Column(name = "Genre_idGenre")
+    private int genreIdGenre;
     @ManyToOne
     @JoinColumn(name = "Genre_idGenre", referencedColumnName = "idGenre", nullable = false)
     private GenreEntity genreByGenreIdGenre;
@@ -34,6 +41,14 @@ public class BookEntity {
     private Collection<FavoriteEntity> favoritesByIdBook;
     @OneToMany(mappedBy = "bookByBookIdBook")
     private Collection<HistoryEntity> historiesByIdBook;
+
+    public String getIdBook() {
+        return idBook;
+    }
+
+    public void setIdBook(String idBook) {
+        this.idBook = idBook;
+    }
 
     public String getCover() {
         return cover;
@@ -83,17 +98,25 @@ public class BookEntity {
         this.content = content;
     }
 
+    public int getGenreIdGenre() {
+        return genreIdGenre;
+    }
+
+    public void setGenreIdGenre(int genreIdGenre) {
+        this.genreIdGenre = genreIdGenre;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookEntity that = (BookEntity) o;
-        return Objects.equals(cover, that.cover) && Objects.equals(title, that.title) && Objects.equals(tahunTerbit, that.tahunTerbit) && Objects.equals(deskripsi, that.deskripsi) && Objects.equals(rating, that.rating) && Objects.equals(content, that.content);
+        return genreIdGenre == that.genreIdGenre && Objects.equals(idBook, that.idBook) && Objects.equals(cover, that.cover) && Objects.equals(title, that.title) && Objects.equals(tahunTerbit, that.tahunTerbit) && Objects.equals(deskripsi, that.deskripsi) && Objects.equals(rating, that.rating) && Objects.equals(content, that.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cover, title, tahunTerbit, deskripsi, rating, content);
+        return Objects.hash(idBook, cover, title, tahunTerbit, deskripsi, rating, content, genreIdGenre);
     }
 
     public GenreEntity getGenreByGenreIdGenre() {

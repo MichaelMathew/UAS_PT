@@ -1,7 +1,5 @@
 package com.example.uas_pt.dao;
 
-import com.example.uas_pt.model.AuthorEntity;
-import com.example.uas_pt.model.UserEntity;
 import com.example.uas_pt.util.HiberUtility;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

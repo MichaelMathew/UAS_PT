@@ -1,7 +1,5 @@
 package com.example.uas_pt.dao;
 
-import com.example.uas_pt.model.BookEntity;
-
 import java.util.List;
 
 public class BookDao implements DaoInterface<BookEntity> {

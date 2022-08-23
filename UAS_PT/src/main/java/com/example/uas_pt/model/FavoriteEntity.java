@@ -5,7 +5,12 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "favorite", schema = "librarydb", catalog = "")
+@IdClass(FavoriteEntityPK.class)
 public class FavoriteEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "User_idUser")
+    private int userIdUser;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "Book_idBook")
@@ -16,6 +21,14 @@ public class FavoriteEntity {
     @ManyToOne
     @JoinColumn(name = "Book_idBook", referencedColumnName = "idBook", nullable = false)
     private BookEntity bookByBookIdBook;
+
+    public int getUserIdUser() {
+        return userIdUser;
+    }
+
+    public void setUserIdUser(int userIdUser) {
+        this.userIdUser = userIdUser;
+    }
 
     public String getBookIdBook() {
         return bookIdBook;
@@ -30,12 +43,12 @@ public class FavoriteEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FavoriteEntity that = (FavoriteEntity) o;
-        return Objects.equals(bookIdBook, that.bookIdBook);
+        return userIdUser == that.userIdUser && Objects.equals(bookIdBook, that.bookIdBook);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookIdBook);
+        return Objects.hash(userIdUser, bookIdBook);
     }
 
     public UserEntity getUserByUserIdUser() {
