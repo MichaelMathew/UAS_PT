@@ -1,18 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.uas_pt.fxmlclass.Home"
-            prefHeight="400.0" prefWidth="600.0">
-
-    <children>
-        <Label layoutX="254.0" layoutY="177.0" text="home" />
-    </children>
-
+<AnchorPane prefHeight="180.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane fx:id="Content" prefHeight="380.0" prefWidth="300.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefWidth="67.0" text="New Release">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="85.0" prefWidth="300.0">
+                     <children>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fx:id="release1" fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label text="Library">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="85.0" prefWidth="300.0">
+                     <children>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
 </AnchorPane>

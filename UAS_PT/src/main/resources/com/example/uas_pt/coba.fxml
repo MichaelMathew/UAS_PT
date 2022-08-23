@@ -1,31 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.FirstController">
-   <top>
-      <HBox prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </top>
-   <left>
-      <VBox prefHeight="326.0" prefWidth="153.0" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton onAction="#home" text="Home" />
-            <Button mnemonicParsing="false" onAction="#page1" text="page 1" />
-            <Button mnemonicParsing="false" onAction="#page2" text="page2" />
-         </children>
-      </VBox>
-   </left>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.FirstController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="180.0" prefWidth="275.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="Content" layoutX="-1.0" prefHeight="333.0" prefWidth="425.0" />
+            <StackPane fx:id="Content" prefHeight="380.0" prefWidth="300.0">
+               <children>
+                  <ImageView fitHeight="22.5" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+                     <image>
+                        <Image url="@../../../../../assets/close.png" />
+                     </image>
+                  </ImageView>
+               </children></StackPane>
          </children>
       </AnchorPane>
    </center>
+   <bottom>
+      <GridPane alignment="CENTER" prefHeight="36.0" prefWidth="260.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox onMouseClicked="#btnHome" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../assets/ForYou.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <VBox.margin>
+                        <Insets left="28.5" />
+                     </VBox.margin>
+                  </ImageView>
+                  <JFXButton prefWidth="75.0" text="For You">
+                     <VBox.margin>
+                        <Insets bottom="-5.0" top="-5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <VBox onMouseClicked="#btnHistory" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../assets/History.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <VBox.margin>
+                        <Insets left="28.5" />
+                     </VBox.margin>
+                  </ImageView>
+                  <JFXButton prefWidth="75.0" text="History">
+                     <VBox.margin>
+                        <Insets bottom="-5.0" top="-5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <VBox onMouseClicked="#btnFavorite" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+               <children>
+                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../assets/Favorite.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <VBox.margin>
+                        <Insets left="28.5" />
+                     </VBox.margin>
+                  </ImageView>
+                  <JFXButton prefWidth="75.0" text="Favorite">
+                     <VBox.margin>
+                        <Insets bottom="-5.0" top="-5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <VBox onMouseClicked="#btnProfile" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../assets/profile.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <VBox.margin>
+                        <Insets left="28.5" />
+                     </VBox.margin>
+                  </ImageView>
+                  <JFXButton prefWidth="75.0" text="Profile">
+                     <VBox.margin>
+                        <Insets bottom="-5.0" top="-5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </bottom>
 </BorderPane>
