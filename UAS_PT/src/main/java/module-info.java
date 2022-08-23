@@ -3,9 +3,9 @@ module com.example.uas_pt {
     requires javafx.fxml;
     requires java.sql;
     requires jasperreports;
-//    requires org.hibernate.orm.core;
+    requires org.hibernate.orm.core;
     requires java.naming;
-//    requires java.persistence;
+    requires java.persistence;
 
 
     opens com.example.uas_pt to javafx.fxml;
