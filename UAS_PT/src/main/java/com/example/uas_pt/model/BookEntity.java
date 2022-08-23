@@ -33,8 +33,6 @@ public class BookEntity {
     @JoinColumn(name = "Genre_idGenre", referencedColumnName = "idGenre", nullable = false)
     private GenreEntity genreByGenreIdGenre;
     @OneToMany(mappedBy = "bookByBookIdBook")
-    private Collection<BookHasAuthorEntity> bookHasAuthorsByIdBook;
-    @OneToMany(mappedBy = "bookByBookIdBook")
     private Collection<FavoriteEntity> favoritesByIdBook;
     @OneToMany(mappedBy = "bookByBookIdBook")
     private Collection<HistoryEntity> historiesByIdBook;
@@ -114,14 +112,6 @@ public class BookEntity {
 
     public void setGenreByGenreIdGenre(GenreEntity genreByGenreIdGenre) {
         this.genreByGenreIdGenre = genreByGenreIdGenre;
-    }
-
-    public Collection<BookHasAuthorEntity> getBookHasAuthorsByIdBook() {
-        return bookHasAuthorsByIdBook;
-    }
-
-    public void setBookHasAuthorsByIdBook(Collection<BookHasAuthorEntity> bookHasAuthorsByIdBook) {
-        this.bookHasAuthorsByIdBook = bookHasAuthorsByIdBook;
     }
 
     public Collection<FavoriteEntity> getFavoritesByIdBook() {
