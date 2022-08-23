@@ -1,7 +1,6 @@
 package com.example.uas_pt.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -17,8 +16,6 @@ public class AuthorEntity {
     @Basic
     @Column(name = "deskripsiAuthor")
     private String deskripsiAuthor;
-    @OneToMany(mappedBy = "authorByAuthorIdAuthor")
-    private Collection<BookHasAuthorEntity> bookHasAuthorsByIdAuthor;
 
     public int getIdAuthor() {
         return idAuthor;
@@ -55,13 +52,5 @@ public class AuthorEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idAuthor, namaAuthor, deskripsiAuthor);
-    }
-
-    public Collection<BookHasAuthorEntity> getBookHasAuthorsByIdAuthor() {
-        return bookHasAuthorsByIdAuthor;
-    }
-
-    public void setBookHasAuthorsByIdAuthor(Collection<BookHasAuthorEntity> bookHasAuthorsByIdAuthor) {
-        this.bookHasAuthorsByIdAuthor = bookHasAuthorsByIdAuthor;
     }
 }
