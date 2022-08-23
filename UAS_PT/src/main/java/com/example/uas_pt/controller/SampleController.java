@@ -1,9 +1,11 @@
 package com.example.uas_pt.controller;
 
 import com.example.uas_pt.HelloApplication;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
@@ -15,9 +17,14 @@ import java.util.logging.Logger;
 
 public class SampleController implements Initializable {
     public StackPane Content;
+    @FXML
+    private ImageView close;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        close.setOnMouseClicked(event-> {
+            System.exit(0);
+        });
 
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));

@@ -13,8 +13,4 @@ module com.example.uas_pt {
     exports com.example.uas_pt.dao;
     exports com.example.uas_pt.controller;
     opens com.example.uas_pt.controller to javafx.fxml;
-    exports com.example.uas_pt.fxmlclass;
-    opens com.example.uas_pt.fxmlclass to javafx.fxml;
-//    exports com.example.uas_pt.controller;
-//    opens com.example.uas_pt.controller to javafx.fxml;
 }
