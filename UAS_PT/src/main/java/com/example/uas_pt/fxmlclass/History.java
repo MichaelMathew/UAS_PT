@@ -1,4 +1,4 @@
 package com.example.uas_pt.fxmlclass;
 
-public class Page1 {
+public class History {
 }

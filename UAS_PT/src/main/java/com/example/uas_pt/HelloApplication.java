@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     double x,y = 0;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("coba.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sample.fxml"));
         Parent root = fxmlLoader.load();
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
@@ -30,7 +30,7 @@ public class HelloApplication extends Application {
             primaryStage.setY(event.getScreenY() - y);
         });
 
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

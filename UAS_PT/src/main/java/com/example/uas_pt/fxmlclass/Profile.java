@@ -1,4 +1,4 @@
 package com.example.uas_pt.fxmlclass;
 
-public class Page2 {
+public class Profile {
 }
