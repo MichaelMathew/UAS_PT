@@ -15,7 +15,7 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label prefWidth="67.0" text="New Release">
+                  <Label prefHeight="18.0" prefWidth="83.0" text="New Release">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" top="15.0" />
                      </VBox.margin>
@@ -29,7 +29,7 @@
                                     <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
                                  </image>
                               </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul1" />
                            </children>
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
@@ -45,7 +45,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </VBox.margin>
                               </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul">
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul2">
                                  <VBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </VBox.margin>
@@ -59,7 +59,7 @@
                                     <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
                                  </image>
                               </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul3" />
                            </children>
                            <HBox.margin>
                               <Insets left="5.0" right="10.0" />
@@ -81,7 +81,7 @@
                                     <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
                                  </image>
                               </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
                            </children>
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
@@ -97,7 +97,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </VBox.margin>
                               </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul">
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul5">
                                  <VBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </VBox.margin>
@@ -111,7 +111,7 @@
                                     <Image url="@../../../../../assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
                                  </image>
                               </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul" />
+                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />
                            </children>
                            <HBox.margin>
                               <Insets left="5.0" right="10.0" />
