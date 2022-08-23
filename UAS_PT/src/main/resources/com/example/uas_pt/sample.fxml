@@ -17,14 +17,12 @@
    <center>
       <AnchorPane prefHeight="180.0" prefWidth="275.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="Content" prefHeight="380.0" prefWidth="300.0">
-               <children>
-                  <ImageView fx:id="close" fitHeight="22.5" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
-                     <image>
-                        <Image url="@../../../../../assets/close.png" />
-                     </image>
-                  </ImageView>
-               </children></StackPane>
+            <StackPane fx:id="Content" prefHeight="380.0" prefWidth="300.0" />
+            <ImageView fx:id="close" fitHeight="22.5" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="277.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/close.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>
@@ -40,11 +38,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox onMouseClicked="#btnHome" prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../assets/ForYou.png" />
+                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/ForYou.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -53,18 +51,18 @@
                         <Insets left="28.5" />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton prefWidth="75.0" text="For You">
+                  <JFXButton onAction="#btnHome" prefWidth="75.0" text="For You">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
                   </JFXButton>
                </children>
             </VBox>
-            <VBox onMouseClicked="#btnHistory" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../assets/History.png" />
+                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/History.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -73,18 +71,18 @@
                         <Insets left="28.5" />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton prefWidth="75.0" text="History">
+                  <JFXButton onAction="#btnHistory" prefWidth="75.0" text="History">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
                   </JFXButton>
                </children>
             </VBox>
-            <VBox onMouseClicked="#btnFavorite" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../assets/Favorite.png" />
+                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Favorite.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -93,18 +91,18 @@
                         <Insets left="28.5" />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton prefWidth="75.0" text="Favorite">
+                  <JFXButton onAction="#btnFavorite" prefWidth="75.0" text="Favorite">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
                   </JFXButton>
                </children>
             </VBox>
-            <VBox onMouseClicked="#btnProfile" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../assets/profile.png" />
+                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/profile.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -113,7 +111,7 @@
                         <Insets left="28.5" />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton prefWidth="75.0" text="Profile">
+                  <JFXButton onAction="#btnProfile" prefWidth="75.0" text="Profile">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
