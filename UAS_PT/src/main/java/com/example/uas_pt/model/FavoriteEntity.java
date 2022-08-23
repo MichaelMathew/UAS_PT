@@ -15,12 +15,6 @@ public class FavoriteEntity {
     @Id
     @Column(name = "Book_idBook")
     private String bookIdBook;
-    @ManyToOne
-    @JoinColumn(name = "User_idUser", referencedColumnName = "idUser", nullable = false)
-    private UserEntity userByUserIdUser;
-    @ManyToOne
-    @JoinColumn(name = "Book_idBook", referencedColumnName = "idBook", nullable = false)
-    private BookEntity bookByBookIdBook;
 
     public int getUserIdUser() {
         return userIdUser;
@@ -49,21 +43,5 @@ public class FavoriteEntity {
     @Override
     public int hashCode() {
         return Objects.hash(userIdUser, bookIdBook);
-    }
-
-    public UserEntity getUserByUserIdUser() {
-        return userByUserIdUser;
-    }
-
-    public void setUserByUserIdUser(UserEntity userByUserIdUser) {
-        this.userByUserIdUser = userByUserIdUser;
-    }
-
-    public BookEntity getBookByBookIdBook() {
-        return bookByBookIdBook;
-    }
-
-    public void setBookByBookIdBook(BookEntity bookByBookIdBook) {
-        this.bookByBookIdBook = bookByBookIdBook;
     }
 }
