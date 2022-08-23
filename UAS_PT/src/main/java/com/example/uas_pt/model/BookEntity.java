@@ -1,6 +1,7 @@
 package com.example.uas_pt.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -28,9 +29,15 @@ public class BookEntity {
     @Basic
     @Column(name = "Content")
     private String content;
-    @Basic
-    @Column(name = "Genre_idGenre")
-    private int genreIdGenre;
+    @ManyToOne
+    @JoinColumn(name = "Genre_idGenre", referencedColumnName = "idGenre", nullable = false)
+    private GenreEntity genreByGenreIdGenre;
+    @OneToMany(mappedBy = "bookByBookIdBook")
+    private Collection<BookHasAuthorEntity> bookHasAuthorsByIdBook;
+    @OneToMany(mappedBy = "bookByBookIdBook")
+    private Collection<FavoriteEntity> favoritesByIdBook;
+    @OneToMany(mappedBy = "bookByBookIdBook")
+    private Collection<HistoryEntity> historiesByIdBook;
 
     public String getIdBook() {
         return idBook;
@@ -88,24 +95,48 @@ public class BookEntity {
         this.content = content;
     }
 
-    public int getGenreIdGenre() {
-        return genreIdGenre;
-    }
-
-    public void setGenreIdGenre(int genreIdGenre) {
-        this.genreIdGenre = genreIdGenre;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookEntity that = (BookEntity) o;
-        return genreIdGenre == that.genreIdGenre && Objects.equals(idBook, that.idBook) && Objects.equals(cover, that.cover) && Objects.equals(title, that.title) && Objects.equals(tahunTerbit, that.tahunTerbit) && Objects.equals(deskripsi, that.deskripsi) && Objects.equals(rating, that.rating) && Objects.equals(content, that.content);
+        return Objects.equals(idBook, that.idBook) && Objects.equals(cover, that.cover) && Objects.equals(title, that.title) && Objects.equals(tahunTerbit, that.tahunTerbit) && Objects.equals(deskripsi, that.deskripsi) && Objects.equals(rating, that.rating) && Objects.equals(content, that.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idBook, cover, title, tahunTerbit, deskripsi, rating, content, genreIdGenre);
+        return Objects.hash(idBook, cover, title, tahunTerbit, deskripsi, rating, content);
+    }
+
+    public GenreEntity getGenreByGenreIdGenre() {
+        return genreByGenreIdGenre;
+    }
+
+    public void setGenreByGenreIdGenre(GenreEntity genreByGenreIdGenre) {
+        this.genreByGenreIdGenre = genreByGenreIdGenre;
+    }
+
+    public Collection<BookHasAuthorEntity> getBookHasAuthorsByIdBook() {
+        return bookHasAuthorsByIdBook;
+    }
+
+    public void setBookHasAuthorsByIdBook(Collection<BookHasAuthorEntity> bookHasAuthorsByIdBook) {
+        this.bookHasAuthorsByIdBook = bookHasAuthorsByIdBook;
+    }
+
+    public Collection<FavoriteEntity> getFavoritesByIdBook() {
+        return favoritesByIdBook;
+    }
+
+    public void setFavoritesByIdBook(Collection<FavoriteEntity> favoritesByIdBook) {
+        this.favoritesByIdBook = favoritesByIdBook;
+    }
+
+    public Collection<HistoryEntity> getHistoriesByIdBook() {
+        return historiesByIdBook;
+    }
+
+    public void setHistoriesByIdBook(Collection<HistoryEntity> historiesByIdBook) {
+        this.historiesByIdBook = historiesByIdBook;
     }
 }
