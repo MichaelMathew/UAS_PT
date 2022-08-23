@@ -12,5 +12,7 @@ module com.example.uas_pt {
     exports com.example.uas_pt;
     exports com.example.uas_pt.dao;
     exports com.example.uas_pt.controller;
+    exports com.example.uas_pt.model;
+    opens com.example.uas_pt.model;
     opens com.example.uas_pt.controller to javafx.fxml;
 }
