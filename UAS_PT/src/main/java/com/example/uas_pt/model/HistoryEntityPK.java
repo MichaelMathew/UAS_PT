@@ -1,19 +1,20 @@
 package com.example.uas_pt.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-@Table(name = "favorite", schema = "librarydb", catalog = "")
-@IdClass(FavoriteEntityPK.class)
-public class FavoriteEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+public class HistoryEntityPK implements Serializable {
     @Column(name = "User_idUser")
-    private int userIdUser;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int userIdUser;
     @Column(name = "Book_idBook")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String bookIdBook;
 
     public int getUserIdUser() {
@@ -36,7 +37,7 @@ public class FavoriteEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        FavoriteEntity that = (FavoriteEntity) o;
+        HistoryEntityPK that = (HistoryEntityPK) o;
         return userIdUser == that.userIdUser && Objects.equals(bookIdBook, that.bookIdBook);
     }
 
