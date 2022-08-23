@@ -16,7 +16,8 @@ public class HelloApplication extends Application {
     double x,y = 0;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("coba.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("coba.fxml"));
+        Parent root = fxmlLoader.load();
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(event -> {
