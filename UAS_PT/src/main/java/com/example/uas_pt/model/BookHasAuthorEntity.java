@@ -16,6 +16,9 @@ public class BookHasAuthorEntity {
     @Column(name = "Author_idAuthor")
     private int authorIdAuthor;
     @ManyToOne
+    @JoinColumn(name = "Book_idBook", referencedColumnName = "idBook", nullable = false)
+    private BookEntity bookByBookIdBook;
+    @ManyToOne
     @JoinColumn(name = "Author_idAuthor", referencedColumnName = "idAuthor", nullable = false)
     private AuthorEntity authorByAuthorIdAuthor;
 
@@ -46,6 +49,14 @@ public class BookHasAuthorEntity {
     @Override
     public int hashCode() {
         return Objects.hash(bookIdBook, authorIdAuthor);
+    }
+
+    public BookEntity getBookByBookIdBook() {
+        return bookByBookIdBook;
+    }
+
+    public void setBookByBookIdBook(BookEntity bookByBookIdBook) {
+        this.bookByBookIdBook = bookByBookIdBook;
     }
 
     public AuthorEntity getAuthorByAuthorIdAuthor() {
