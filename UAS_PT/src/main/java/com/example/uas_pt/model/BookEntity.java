@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "book", schema = "librarydb", catalog = "")
 public class BookEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "idBook")
     private String idBook;
