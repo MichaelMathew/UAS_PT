@@ -1,19 +1,11 @@
 package com.example.uas_pt.controller;
 
 import com.example.uas_pt.dao.BookDao;
-import com.example.uas_pt.model.BookEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.ResourceBundle;
 
 public class HomeController {
     public ImageView release1;
