@@ -1,7 +1,6 @@
 package com.example.uas_pt.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -20,10 +19,6 @@ public class UserEntity {
     @Basic
     @Column(name = "Password")
     private String password;
-    @OneToMany(mappedBy = "userByUserIdUser")
-    private Collection<FavoriteEntity> favoritesByIdUser;
-    @OneToMany(mappedBy = "userByUserIdUser")
-    private Collection<HistoryEntity> historiesByIdUser;
 
     public int getIdUser() {
         return idUser;
@@ -68,21 +63,5 @@ public class UserEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idUser, name, email, password);
-    }
-
-    public Collection<FavoriteEntity> getFavoritesByIdUser() {
-        return favoritesByIdUser;
-    }
-
-    public void setFavoritesByIdUser(Collection<FavoriteEntity> favoritesByIdUser) {
-        this.favoritesByIdUser = favoritesByIdUser;
-    }
-
-    public Collection<HistoryEntity> getHistoriesByIdUser() {
-        return historiesByIdUser;
-    }
-
-    public void setHistoriesByIdUser(Collection<HistoryEntity> historiesByIdUser) {
-        this.historiesByIdUser = historiesByIdUser;
     }
 }
