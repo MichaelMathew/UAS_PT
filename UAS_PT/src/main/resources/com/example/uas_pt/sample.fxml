@@ -13,14 +13,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.SampleController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.SampleController">
    <center>
-      <AnchorPane prefHeight="195.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="340.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="Content" prefHeight="380.0" prefWidth="300.0" />
-            <ImageView fx:id="close" fitHeight="22.5" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="277.0" AnchorPane.topAnchor="0.0">
+            <StackPane fx:id="Content" prefHeight="515.0" prefWidth="350.0" />
+            <ImageView fx:id="close" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/close.png" />
+                  <Image url="@../../../../../assets/close.png" />
                </image>
             </ImageView>
          </children>
@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/ForYou.png" />
+                        <Image url="@../../../../../assets/ForYou.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -62,7 +62,7 @@
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/History.png" />
+                        <Image url="@../../../../../assets/History.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -82,7 +82,7 @@
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Favorite.png" />
+                        <Image url="@../../../../../assets/Favorite.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -102,7 +102,7 @@
                <children>
                   <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/profile.png" />
+                        <Image url="@../../../../../assets/profile.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />

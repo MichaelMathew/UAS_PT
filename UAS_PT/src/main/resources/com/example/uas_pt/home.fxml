@@ -2,126 +2,241 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="180.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.HomeController">
-   <children>
-      <StackPane fx:id="Content" prefHeight="380.0" prefWidth="300.0">
+<ScrollPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.HomeController">
+      <AnchorPane prefHeight="500.0" prefWidth="340.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <StackPane fx:id="Content" prefHeight="515.0" prefWidth="350.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="83.0" text="New Release">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" top="15.0" />
-                     </VBox.margin>
-                  </Label>
-                  <HBox prefHeight="85.0" prefWidth="300.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <VBox prefHeight="149.0" prefWidth="84.0">
+                        <Label prefHeight="18.0" prefWidth="83.0" text="New Release">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
                            <children>
-                              <ImageView fx:id="release1" fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="judul1" prefHeight="13.0" prefWidth="133.0" text="Judul1" />
+                              <VBox prefHeight="149.0" prefWidth="84.0">
+                                 <children>
+                                    <ImageView fx:id="release1" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="judul1" prefHeight="13.0" prefWidth="133.0" text="Judul1" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="149.0" prefWidth="84.0">
+                                 <children>
+                                    <ImageView fx:id="release2" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="judul2" prefHeight="13.0" prefWidth="133.0" text="Judul2">
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="149.0" prefWidth="84.0">
+                                 <children>
+                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul3" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
                            </children>
-                           <HBox.margin>
-                              <Insets left="10.0" right="5.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <VBox prefHeight="149.0" prefWidth="84.0">
+                        </HBox>
+                        <Label text="Library">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
                            <children>
-                              <ImageView fx:id="release2" fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label fx:id="judul2" prefHeight="13.0" prefWidth="133.0" text="Judul2">
-                                 <VBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </VBox.margin>
-                              </Label>
+                              <VBox prefHeight="149.0" prefWidth="84.0">
+                                 <children>
+                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="149.0" prefWidth="84.0">
+                                 <children>
+                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul5">
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="149.0" prefWidth="84.0">
+                                 <children>
+                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox prefHeight="149.0" prefWidth="84.0">
-                           <children>
-                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul3" />
-                           </children>
-                           <HBox.margin>
-                              <Insets left="5.0" right="10.0" />
-                           </HBox.margin>
-                        </VBox>
+                        </HBox>
+                     <HBox alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
+                        <children>
+                           <VBox prefHeight="149.0" prefWidth="84.0">
+                              <children>
+                                 <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                    </image>
+                                 </ImageView>
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
+                              </children>
+                              <HBox.margin>
+                                 <Insets left="10.0" right="5.0" />
+                              </HBox.margin>
+                           </VBox>
+                           <VBox prefHeight="149.0" prefWidth="84.0">
+                              <children>
+                                 <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                    </image>
+                                    <VBox.margin>
+                                       <Insets left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                 </ImageView>
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul5">
+                                    <VBox.margin>
+                                       <Insets left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                 </Label>
+                              </children>
+                           </VBox>
+                           <VBox prefHeight="149.0" prefWidth="84.0">
+                              <children>
+                                 <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                    </image>
+                                 </ImageView>
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />
+                              </children>
+                              <HBox.margin>
+                                 <Insets left="5.0" right="10.0" />
+                              </HBox.margin>
+                           </VBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets top="15.0" />
+                        </VBox.margin>
+                     </HBox>
+                     <HBox alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
+                        <children>
+                           <VBox prefHeight="149.0" prefWidth="84.0">
+                              <children>
+                                 <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                    </image>
+                                 </ImageView>
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
+                              </children>
+                              <HBox.margin>
+                                 <Insets left="10.0" right="5.0" />
+                              </HBox.margin>
+                           </VBox>
+                           <VBox prefHeight="149.0" prefWidth="84.0">
+                              <children>
+                                 <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                    </image>
+                                    <VBox.margin>
+                                       <Insets left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                 </ImageView>
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul5">
+                                    <VBox.margin>
+                                       <Insets left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                 </Label>
+                              </children>
+                           </VBox>
+                           <VBox prefHeight="149.0" prefWidth="84.0">
+                              <children>
+                                 <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                    </image>
+                                 </ImageView>
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />
+                              </children>
+                              <HBox.margin>
+                                 <Insets left="5.0" right="10.0" />
+                              </HBox.margin>
+                           </VBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets top="15.0" />
+                        </VBox.margin>
+                     </HBox>
+                     <HBox alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
+                        <VBox.margin>
+                           <Insets top="15.0" />
+                        </VBox.margin>
+                     </HBox>
                      </children>
-                  </HBox>
-                  <Label text="Library">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" top="15.0" />
-                     </VBox.margin>
-                  </Label>
-                  <HBox prefHeight="85.0" prefWidth="300.0">
-                     <children>
-                        <VBox prefHeight="149.0" prefWidth="84.0">
-                           <children>
-                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
-                           </children>
-                           <HBox.margin>
-                              <Insets left="10.0" right="5.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <VBox prefHeight="149.0" prefWidth="84.0">
-                           <children>
-                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul5">
-                                 <VBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="149.0" prefWidth="84.0">
-                           <children>
-                              <ImageView fitHeight="132.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Chamber_of_Secrets_New_UK_Cover.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />
-                           </children>
-                           <HBox.margin>
-                              <Insets left="5.0" right="10.0" />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
-                  </HBox>
+                  </VBox>
                </children>
-            </VBox>
+            </StackPane>
          </children>
-      </StackPane>
-   </children>
-</AnchorPane>
+      </AnchorPane>
+</ScrollPane>

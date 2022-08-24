@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.HomeController">
+      <AnchorPane prefHeight="500.0" prefWidth="340.0">
+         <children>
+            <StackPane fx:id="Content" prefHeight="515.0" prefWidth="350.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="176.0" prefWidth="350.0" style="-fx-background-image: url(&quot;file:/C:/PemrogramanTerapan/UAS_PT/UAS_PT/src/assets/Apartment%2016.jpg&quot;); -fx-background-position: 50 -80; -fx-border-image-width: 100%;">
+                        <children>
+                           <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                              </image>
+                              <HBox.margin>
+                                 <Insets left="10.0" />
+                              </HBox.margin>
+                           </ImageView>
+                        </children>
+                        </HBox>
+                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                        <children>
+                           <VBox prefHeight="88.0" prefWidth="330.0">
+                              <children>
+                                 <Label alignment="TOP_LEFT" prefWidth="181.0" text="Judul">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                 </Label>
+                                 <Label alignment="TOP_LEFT" prefWidth="181.0" text="Genre">
+                                    <VBox.margin>
+                                       <Insets top="5.0" />
+                                    </VBox.margin>
+                                 </Label>
+                              </children>
+                              <HBox.margin>
+                                 <Insets left="10.0" right="10.0" />
+                              </HBox.margin>
+                           </VBox>
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
+                        <children>
+                           <GridPane alignment="CENTER" prefHeight="50.0" prefWidth="55.0" style="-fx-background-color: white;">
+                             <columnConstraints>
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                             </columnConstraints>
+                             <rowConstraints>
+                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             </rowConstraints>
+                              <children>
+                                 <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <image>
+                                       <Image url="@../../../../../assets/Favorite.png" />
+                                    </image>
+                                 </ImageView>
+                                 <Label text="Rating" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                 <Label text="8.9" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              </children>
+                              <HBox.margin>
+                                 <Insets right="10.0" />
+                              </HBox.margin>
+                           </GridPane>
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER" prefHeight="110.0" prefWidth="350.0">
+                        <children>
+                           <TextArea prefHeight="90.0" prefWidth="331.0">
+                              <HBox.margin>
+                                 <Insets left="10.0" right="10.0" top="10.0" />
+                              </HBox.margin>
+                           </TextArea>
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
+                        <children>
+                           <VBox prefHeight="88.0" prefWidth="330.0">
+                              <children>
+                                 <Label alignment="TOP_LEFT" prefWidth="181.0" text="About Author">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="5.0" />
+                                    </VBox.margin>
+                                 </Label>
+                                 <JFXButton alignment="TOP_LEFT" prefHeight="25.0" prefWidth="166.0" text="Name" />
+                              </children>
+                              <HBox.margin>
+                                 <Insets right="10.0" />
+                              </HBox.margin>
+                           </VBox>
+                        </children>
+                     </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+</ScrollPane>
