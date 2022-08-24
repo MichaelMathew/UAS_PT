@@ -30,18 +30,20 @@ public class HomeController {
     ObservableList<BookEntity> buku;
 
     public void initialize(){
-        judul1 = new Label();
-        judul2 = new Label();
         BookDao dao = new BookDao();
         buku = FXCollections.observableArrayList(dao.getData());
         judul1.setText(buku.get(0).getTitle());
         judul2.setText(buku.get(1).getTitle());
-    }
+        release1.setOnMouseClicked(event-> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                Parent fxml = fxmlLoader.load();
+                Content.getChildren().removeAll();
+                Content.getChildren().setAll(fxml);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-    public void pressimage1(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-        Parent fxml = fxmlLoader.load();
-        Content.getChildren().removeAll();
-        Content.getChildren().setAll(fxml);
+        });
     }
 }
