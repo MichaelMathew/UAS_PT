@@ -4,8 +4,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.HistoryController">
    <children>
-      <Label layoutX="254.0" layoutY="177.0" text="page1" />
+      <StackPane prefHeight="380.0" prefWidth="300.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="History">
+               <StackPane.margin>
+                  <Insets right="200.0" top="-330.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

@@ -1,7 +1,6 @@
 package com.example.uas_pt.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "history", schema = "librarydb", catalog = "")
@@ -16,7 +15,10 @@ public class HistoryEntity {
     @Column(name = "Book_idBook")
     private String bookIdBook;
     @ManyToOne
-    @JoinColumn(name = "Book_idBook", referencedColumnName = "idBook", nullable = false)
+    @JoinColumn(name = "User_idUser", referencedColumnName = "idUser", nullable = false, insertable = false, updatable = false)
+    private UserEntity userByUserIdUser;
+    @ManyToOne
+    @JoinColumn(name = "Book_idBook", referencedColumnName = "idBook", nullable = false, insertable = false, updatable = false)
     private BookEntity bookByBookIdBook;
 
     public int getUserIdUser() {
@@ -39,13 +41,28 @@ public class HistoryEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         HistoryEntity that = (HistoryEntity) o;
-        return userIdUser == that.userIdUser && Objects.equals(bookIdBook, that.bookIdBook);
+
+        if (userIdUser != that.userIdUser) return false;
+        if (bookIdBook != null ? !bookIdBook.equals(that.bookIdBook) : that.bookIdBook != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userIdUser, bookIdBook);
+        int result = userIdUser;
+        result = 31 * result + (bookIdBook != null ? bookIdBook.hashCode() : 0);
+        return result;
+    }
+
+    public UserEntity getUserByUserIdUser() {
+        return userByUserIdUser;
+    }
+
+    public void setUserByUserIdUser(UserEntity userByUserIdUser) {
+        this.userByUserIdUser = userByUserIdUser;
     }
 
     public BookEntity getBookByBookIdBook() {

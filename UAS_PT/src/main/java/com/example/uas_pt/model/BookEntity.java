@@ -1,7 +1,6 @@
 package com.example.uas_pt.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "book", schema = "librarydb", catalog = "")
@@ -92,13 +91,30 @@ public class BookEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         BookEntity that = (BookEntity) o;
-        return Objects.equals(idBook, that.idBook) && Objects.equals(cover, that.cover) && Objects.equals(title, that.title) && Objects.equals(tahunTerbit, that.tahunTerbit) && Objects.equals(deskripsi, that.deskripsi) && Objects.equals(rating, that.rating) && Objects.equals(content, that.content);
+
+        if (idBook != null ? !idBook.equals(that.idBook) : that.idBook != null) return false;
+        if (cover != null ? !cover.equals(that.cover) : that.cover != null) return false;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (tahunTerbit != null ? !tahunTerbit.equals(that.tahunTerbit) : that.tahunTerbit != null) return false;
+        if (deskripsi != null ? !deskripsi.equals(that.deskripsi) : that.deskripsi != null) return false;
+        if (rating != null ? !rating.equals(that.rating) : that.rating != null) return false;
+        if (content != null ? !content.equals(that.content) : that.content != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idBook, cover, title, tahunTerbit, deskripsi, rating, content);
+        int result = idBook != null ? idBook.hashCode() : 0;
+        result = 31 * result + (cover != null ? cover.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (tahunTerbit != null ? tahunTerbit.hashCode() : 0);
+        result = 31 * result + (deskripsi != null ? deskripsi.hashCode() : 0);
+        result = 31 * result + (rating != null ? rating.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        return result;
     }
 
     public GenreEntity getGenreByGenreIdGenre() {

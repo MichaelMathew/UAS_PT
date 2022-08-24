@@ -1,7 +1,6 @@
 package com.example.uas_pt.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "author", schema = "librarydb", catalog = "")
@@ -45,12 +44,22 @@ public class AuthorEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         AuthorEntity that = (AuthorEntity) o;
-        return idAuthor == that.idAuthor && Objects.equals(namaAuthor, that.namaAuthor) && Objects.equals(deskripsiAuthor, that.deskripsiAuthor);
+
+        if (idAuthor != that.idAuthor) return false;
+        if (namaAuthor != null ? !namaAuthor.equals(that.namaAuthor) : that.namaAuthor != null) return false;
+        if (deskripsiAuthor != null ? !deskripsiAuthor.equals(that.deskripsiAuthor) : that.deskripsiAuthor != null)
+            return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idAuthor, namaAuthor, deskripsiAuthor);
+        int result = idAuthor;
+        result = 31 * result + (namaAuthor != null ? namaAuthor.hashCode() : 0);
+        result = 31 * result + (deskripsiAuthor != null ? deskripsiAuthor.hashCode() : 0);
+        return result;
     }
 }

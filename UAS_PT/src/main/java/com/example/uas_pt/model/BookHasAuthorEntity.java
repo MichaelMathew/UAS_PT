@@ -1,7 +1,6 @@
 package com.example.uas_pt.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "book_has_author", schema = "librarydb", catalog = "")
@@ -16,10 +15,10 @@ public class BookHasAuthorEntity {
     @Column(name = "Author_idAuthor")
     private int authorIdAuthor;
     @ManyToOne
-    @JoinColumn(name = "Book_idBook", referencedColumnName = "idBook", nullable = false)
+    @JoinColumn(name = "Book_idBook", referencedColumnName = "idBook", nullable = false, insertable = false, updatable = false)
     private BookEntity bookByBookIdBook;
     @ManyToOne
-    @JoinColumn(name = "Author_idAuthor", referencedColumnName = "idAuthor", nullable = false)
+    @JoinColumn(name = "Author_idAuthor", referencedColumnName = "idAuthor", nullable = false, insertable = false, updatable = false)
     private AuthorEntity authorByAuthorIdAuthor;
 
     public String getBookIdBook() {
@@ -42,13 +41,20 @@ public class BookHasAuthorEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         BookHasAuthorEntity that = (BookHasAuthorEntity) o;
-        return authorIdAuthor == that.authorIdAuthor && Objects.equals(bookIdBook, that.bookIdBook);
+
+        if (authorIdAuthor != that.authorIdAuthor) return false;
+        if (bookIdBook != null ? !bookIdBook.equals(that.bookIdBook) : that.bookIdBook != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookIdBook, authorIdAuthor);
+        int result = bookIdBook != null ? bookIdBook.hashCode() : 0;
+        result = 31 * result + authorIdAuthor;
+        return result;
     }
 
     public BookEntity getBookByBookIdBook() {

@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Objects;
 
 public class HistoryEntityPK implements Serializable {
     @Column(name = "User_idUser")
@@ -37,12 +36,19 @@ public class HistoryEntityPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         HistoryEntityPK that = (HistoryEntityPK) o;
-        return userIdUser == that.userIdUser && Objects.equals(bookIdBook, that.bookIdBook);
+
+        if (userIdUser != that.userIdUser) return false;
+        if (bookIdBook != null ? !bookIdBook.equals(that.bookIdBook) : that.bookIdBook != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userIdUser, bookIdBook);
+        int result = userIdUser;
+        result = 31 * result + (bookIdBook != null ? bookIdBook.hashCode() : 0);
+        return result;
     }
 }
