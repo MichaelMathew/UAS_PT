@@ -3,7 +3,7 @@ package com.example.uas_pt.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "book", schema = "librarydb", catalog = "")
+@Table(name = "book", schema = "librarydb")
 public class BookEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -123,5 +123,9 @@ public class BookEntity {
 
     public void setGenreByGenreIdGenre(GenreEntity genreByGenreIdGenre) {
         this.genreByGenreIdGenre = genreByGenreIdGenre;
+    }
+
+    public String getTitleAndTahunTerbit(){
+        return title + " (" + tahunTerbit + ")";
     }
 }

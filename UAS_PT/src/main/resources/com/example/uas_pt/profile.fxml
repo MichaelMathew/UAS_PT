@@ -24,7 +24,7 @@
                            <children>
                               <ImageView fitHeight="74.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../assets/profile.png" />
+                                    <Image url="@../../../assets/profile.png" />
                                  </image>
                               </ImageView>
                               <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Anonymous">

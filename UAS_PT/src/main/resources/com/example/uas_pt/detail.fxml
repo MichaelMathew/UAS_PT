@@ -24,11 +24,11 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="176.0" prefWidth="350.0" style="-fx-background-image: url(&quot;file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg&quot;); -fx-background-position: 50 -80; -fx-border-image-width: 100%;">
+                        <HBox fx:id="hboxstyle" alignment="CENTER_LEFT" prefHeight="176.0" prefWidth="350.0" style="-fx-background-image: url(&quot;file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/main/resources/assets/A0006.jpg&quot;); -fx-background-position: 50 -80; -fx-border-image-width: 100%;">
                         <children>
-                           <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: border;">
+                           <ImageView fx:id="imageDetail" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: border;">
                               <image>
-                                 <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                 <Image url="@../../../assets/A0006.jpg" />
                               </image>
                               <HBox.margin>
                                  <Insets left="10.0" />
@@ -74,7 +74,7 @@
                               <children>
                                  <ImageView fx:id="btnFavorite" fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                     <image>
-                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Favorite.png" />
+                                       <Image url="@../../../assets/Favorite.png" />
                                     </image>
                                     <cursor>
                                        <Cursor fx:constant="HAND" />
@@ -126,7 +126,7 @@
                      </HBox>
                      <HBox alignment="CENTER_RIGHT" prefWidth="350.0">
                         <children>
-                           <JFXButton alignment="CENTER" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: lightgrey;" text="Read">
+                           <JFXButton alignment="CENTER" onAction="#readText" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: lightgrey;" text="Read">
                               <HBox.margin>
                                  <Insets right="10.0" />
                               </HBox.margin>

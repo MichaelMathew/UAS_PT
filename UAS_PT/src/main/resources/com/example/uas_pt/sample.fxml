@@ -20,7 +20,7 @@
             <StackPane fx:id="Content" prefHeight="515.0" prefWidth="365.0" />
             <ImageView fx:id="close" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="323.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/close.png" />
+                  <Image url="@../../../assets/close.png" />
                </image>
             </ImageView>
          </children>
@@ -40,9 +40,9 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgForYou" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/ForYou.png" />
+                        <Image url="@../../../assets/ForYou.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -60,9 +60,9 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
-                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgHistory" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/History.png" />
+                        <Image url="@../../../assets/History.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -80,9 +80,9 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                <children>
-                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgFavorite" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Favorite.png" />
+                        <Image url="@../../../assets/Favorite.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -100,9 +100,9 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <ImageView fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgProfile" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/profile.png" />
+                        <Image url="@../../../assets/profile.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />

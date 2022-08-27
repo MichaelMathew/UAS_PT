@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -17,11 +18,26 @@ import java.util.logging.Logger;
 
 public class SampleController implements Initializable {
     public StackPane Content;
+    public ImageView imgForYou;
+    public ImageView imgHistory;
+    public ImageView imgFavorite;
+    public ImageView imgProfile;
     @FXML
     private ImageView close;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image imagefy = new Image(getClass().getResourceAsStream("/assets/" + "ForYou" + ".png"));
+        Image imagehy = new Image(getClass().getResourceAsStream("/assets/" + "History" + ".png"));
+        Image imagefv = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
+        Image imagepf = new Image(getClass().getResourceAsStream("/assets/" + "profile" + ".png"));
+        Image imagecs = new Image(getClass().getResourceAsStream("/assets/" + "close" + ".png"));
+        imgForYou.setImage(imagefy);
+        imgHistory.setImage(imagehy);
+        imgFavorite.setImage(imagefv);
+        imgProfile.setImage(imagepf);
+        close.setImage(imagecs);
         close.setOnMouseClicked(event-> {
             System.exit(0);
         });

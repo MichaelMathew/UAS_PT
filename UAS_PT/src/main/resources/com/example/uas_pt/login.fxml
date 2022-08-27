@@ -12,7 +12,8 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.uas_pt.controller.UserController">
    <top>
       <Label text="Login Here" BorderPane.alignment="CENTER">
          <font>
@@ -39,7 +40,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <JFXButton prefHeight="30.0" prefWidth="225.0" style="-fx-background-color: grey;" text="Login">
+            <JFXButton onAction="#Login" prefHeight="30.0" prefWidth="225.0" style="-fx-background-color: grey;" text="Login">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>

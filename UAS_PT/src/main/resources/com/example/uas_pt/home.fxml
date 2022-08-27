@@ -32,7 +32,7 @@
                                  <children>
                                     <ImageView fx:id="release1" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0001.jpg" />
+                                          <Image url="@../../../assets/A0006.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label fx:id="judul1" prefHeight="13.0" prefWidth="133.0" text="Judul1" />
@@ -45,7 +45,7 @@
                                  <children>
                                     <ImageView fx:id="release2" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0002.jpg" />
+                                          <Image url="@../../../assets/A0006.jpg" />
                                        </image>
                                        <VBox.margin>
                                           <Insets left="5.0" right="5.0" />
@@ -60,9 +60,9 @@
                               </VBox>
                               <VBox prefHeight="149.0" prefWidth="84.0">
                                  <children>
-                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="release3" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0003.jpg" />
+                                          <Image url="@../../../assets/A0006.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label fx:id="judul3" prefHeight="13.0" prefWidth="133.0" text="Judul3" />
@@ -85,9 +85,9 @@
                            <children>
                               <VBox prefHeight="149.0" prefWidth="84.0">
                                  <children>
-                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="library1" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0004.jpg" />
+                                          <Image url="@../../../assets/A0006.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label fx:id="judul4" prefHeight="13.0" prefWidth="133.0" text="Judul4" />
@@ -98,9 +98,9 @@
                               </VBox>
                               <VBox prefHeight="149.0" prefWidth="84.0">
                                  <children>
-                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="library2" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0005.jpg" />
+                                          <Image url="@../../../assets/A0006.jpg" />
                                        </image>
                                        <VBox.margin>
                                           <Insets left="5.0" right="5.0" />
@@ -115,9 +115,9 @@
                               </VBox>
                               <VBox prefHeight="149.0" prefWidth="84.0">
                                  <children>
-                                    <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="library3" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                          <Image url="@../../../assets/A0006.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label fx:id="judul6" prefHeight="13.0" prefWidth="133.0" text="Judul6" />
@@ -134,7 +134,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                       <Image url="@../../../assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
                                  <Label prefHeight="13.0" prefWidth="133.0" text="Judul7" />
@@ -147,7 +147,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                       <Image url="@../../../assets/A0006.jpg" />
                                     </image>
                                     <VBox.margin>
                                        <Insets left="5.0" right="5.0" />
@@ -164,7 +164,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                       <Image url="@../../../assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
                                  <Label prefHeight="13.0" prefWidth="133.0" text="Judul9" />
@@ -184,7 +184,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                       <Image url="@../../../assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
                                  <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
@@ -197,7 +197,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                       <Image url="@../../../assets/A0006.jpg" />
                                     </image>
                                     <VBox.margin>
                                        <Insets left="5.0" right="5.0" />
@@ -214,7 +214,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
+                                       <Image url="@../../../assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
                                  <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />

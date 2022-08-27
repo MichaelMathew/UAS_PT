@@ -1,6 +1,7 @@
 package com.example.uas_pt.dao;
 
 import com.example.uas_pt.model.BookEntity;
+import com.example.uas_pt.model.HistoryEntity;
 import com.example.uas_pt.util.HiberUtility;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,34 +12,35 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class BookDao implements DaoInterface<BookEntity> {
+public class HistoryDao implements DaoInterface<HistoryEntity> {
+
     @Override
-    public List<BookEntity> getData() {
-        List<BookEntity> bList;
+    public List<HistoryEntity> getData() {
+        List<HistoryEntity> hList;
         Session s = HiberUtility.getSession();
         CriteriaBuilder cb = s.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(BookEntity.class);
-        cq.from(BookEntity.class);
-        bList = s.createQuery(cq).getResultList();
+        CriteriaQuery cq = cb.createQuery(HistoryEntity.class);
+        cq.from(HistoryEntity.class);
+        hList = s.createQuery(cq).getResultList();
         s.close();
-        return bList;
+        return hList;
     }
 
-    public BookEntity filterData(String data) {
-        BookEntity bList;
+    public List<HistoryEntity> filterData(String data){
+        List<HistoryEntity> hList;
         Session s = HiberUtility.getSession();
         CriteriaBuilder cb = s.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(BookEntity.class);
-        Root<BookEntity> r = cq.from(BookEntity.class);
-        Predicate p1 = cb.like(r.get("idBook"),data);
+        CriteriaQuery cq = cb.createQuery(HistoryEntity.class);
+        Root<HistoryEntity> r = cq.from(HistoryEntity.class);
+        Predicate p1 = cb.like(r.get("userIdUser"),data);
         cq.where(p1);
-        bList = (BookEntity) s.createQuery(cq).getSingleResult();
+        hList = s.createQuery(cq).getResultList();
         s.close();
-        return bList;
+        return hList;
     }
 
     @Override
-    public int addData(BookEntity data) {
+    public int addData(HistoryEntity data) {
         int hasil = 0;
         Session s = HiberUtility.getSession();
         Transaction t = s.beginTransaction();
@@ -56,7 +58,7 @@ public class BookDao implements DaoInterface<BookEntity> {
     }
 
     @Override
-    public int deleteData(BookEntity data) {
+    public int deleteData(HistoryEntity data) {
         int hasil = 0;
         Session s = HiberUtility.getSession();
         Transaction t = s.beginTransaction();
@@ -74,7 +76,7 @@ public class BookDao implements DaoInterface<BookEntity> {
     }
 
     @Override
-    public int updateData(BookEntity data) {
+    public int updateData(HistoryEntity data) {
         int hasil = 0;
         Session s = HiberUtility.getSession();
         Transaction t = s.beginTransaction();
