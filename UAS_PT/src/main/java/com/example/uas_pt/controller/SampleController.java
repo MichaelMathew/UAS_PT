@@ -79,5 +79,7 @@ public class SampleController implements Initializable {
         Parent fxml = fxmlLoader.load();
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
+        ProfileController pc = fxmlLoader.getController();
+        pc.data();
     }
 }
