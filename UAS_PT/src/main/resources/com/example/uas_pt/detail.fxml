@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -19,7 +20,7 @@
 <ScrollPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.DetailController">
       <AnchorPane prefHeight="500.0" prefWidth="340.0">
          <children>
-            <StackPane fx:id="Content" prefHeight="515.0" prefWidth="350.0">
+            <StackPane fx:id="Content" prefHeight="500.0" prefWidth="350.0">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -42,7 +43,7 @@
                         <children>
                            <VBox prefHeight="88.0" prefWidth="330.0">
                               <children>
-                                 <Label fx:id="judulDetail" alignment="TOP_LEFT" prefWidth="181.0" text="Judul">
+                                 <Label fx:id="judulDetail" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="331.0" text="Judul (Tahun)">
                                     <font>
                                        <Font name="System Bold" size="14.0" />
                                     </font>
@@ -75,6 +76,9 @@
                                     <image>
                                        <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Favorite.png" />
                                     </image>
+                                    <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                    </cursor>
                                  </ImageView>
                                  <Label text="Rating" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                                  <Label fx:id="ratingDetail" text="8.9" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
@@ -94,7 +98,7 @@
                            </TextArea>
                         </children>
                      </HBox>
-                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
+                     <HBox alignment="CENTER" prefHeight="45.0" prefWidth="350.0">
                         <children>
                            <VBox prefHeight="88.0" prefWidth="330.0">
                               <children>
@@ -106,13 +110,34 @@
                                        <Insets left="5.0" />
                                     </VBox.margin>
                                  </Label>
-                                 <JFXButton fx:id="authorDetail" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="166.0" text="Name" />
+                                 <JFXButton fx:id="authorDetail" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="166.0" text="Name">
+                                    <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                    </cursor></JFXButton>
                               </children>
                               <HBox.margin>
                                  <Insets right="10.0" />
                               </HBox.margin>
                            </VBox>
                         </children>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin>
+                     </HBox>
+                     <HBox alignment="CENTER_RIGHT" prefWidth="350.0">
+                        <children>
+                           <JFXButton alignment="CENTER" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: lightgrey;" text="Read">
+                              <HBox.margin>
+                                 <Insets right="10.0" />
+                              </HBox.margin>
+                              <cursor>
+                                 <Cursor fx:constant="HAND" />
+                              </cursor>
+                           </JFXButton>
+                        </children>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin>
                      </HBox>
                      </children>
                   </VBox>
