@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.DetailController">
+      <children>
+         <StackPane fx:id="Content" prefHeight="500.0" prefWidth="350.0">
+            <children>
+               <VBox prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                  <HBox prefHeight="35.0" prefWidth="350.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="341.0" text="Name">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="152.0" prefWidth="350.0">
+                     <children>
+                        <TextArea fx:id="deskripsiDetail" editable="false" prefHeight="135.0" prefWidth="331.0">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+                           </HBox.margin>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <Label prefHeight="25.0" prefWidth="341.0" text="Books">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
+                     <children>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fx:id="release1" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/A0006.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="judul1" prefHeight="13.0" prefWidth="133.0" text="Judul1" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fx:id="release2" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/A0006.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label fx:id="judul2" prefHeight="13.0" prefWidth="133.0" text="Judul2">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="149.0" prefWidth="84.0">
+                           <children>
+                              <ImageView fx:id="release3" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/A0006.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="judul3" prefHeight="13.0" prefWidth="133.0" text="Judul3" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  </children>
+               </VBox>
+            </children>
+         </StackPane>
+      </children>
+   </AnchorPane>
