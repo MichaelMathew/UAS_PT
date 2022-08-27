@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <ScrollPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.HomeController">
-      <AnchorPane prefHeight="500.0" prefWidth="335.0">
+      <AnchorPane prefHeight="500.0" prefWidth="350.0">
          <children>
             <StackPane fx:id="Content" prefHeight="813.0" prefWidth="350.0">
                <children>
