@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.UserController">
    <children>
-      <StackPane prefHeight="478.0" prefWidth="365.0">
+      <StackPane prefHeight="500.0" prefWidth="365.0">
          <children>
             <VBox prefHeight="312.0" prefWidth="424.0">
                <children>
