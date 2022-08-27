@@ -7,6 +7,8 @@ import org.hibernate.Transaction;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class BookDao implements DaoInterface<BookEntity> {
@@ -18,6 +20,19 @@ public class BookDao implements DaoInterface<BookEntity> {
         CriteriaQuery cq = cb.createQuery(BookEntity.class);
         cq.from(BookEntity.class);
         bList = s.createQuery(cq).getResultList();
+        s.close();
+        return bList;
+    }
+
+    public BookEntity filterData(String data) {
+        BookEntity bList;
+        Session s = HiberUtility.getSession();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(BookEntity.class);
+        Root<BookEntity> r = cq.from(BookEntity.class);
+        Predicate p1 = cb.like(r.get("idBook"),data);
+        cq.where(p1);
+        bList = (BookEntity) s.createQuery(cq).getSingleResult();
         s.close();
         return bList;
     }

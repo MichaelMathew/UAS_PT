@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="180.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.ProfileController">
+<AnchorPane prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.ProfileController">
    <children>
-      <StackPane fx:id="Content" prefHeight="380.0" prefWidth="300.0">
+      <StackPane fx:id="Content" prefHeight="515.0" prefWidth="350.0">
          <children>
             <VBox prefHeight="380.0" prefWidth="300.0">
                <children>
@@ -22,7 +22,7 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="127.0" prefWidth="301.0">
                            <children>
-                              <ImageView fitHeight="68.0" fitWidth="287.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="74.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../assets/profile.png" />
                                  </image>
@@ -50,9 +50,9 @@
                   </Label>
                   <HBox prefHeight="85.0" prefWidth="300.0">
                      <children>
-                        <ImageView fx:id="release1" fitHeight="83.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="release1" fitHeight="123.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                              <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Apartment%2016.jpg" />
                            </image>
                         </ImageView>
                         <VBox prefHeight="85.0" prefWidth="190.0">

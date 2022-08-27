@@ -12,13 +12,13 @@
 <?import javafx.scene.text.Font?>
 
 <ScrollPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.HomeController">
-      <AnchorPane prefHeight="500.0" prefWidth="340.0">
+      <AnchorPane prefHeight="500.0" prefWidth="335.0">
          <children>
-            <StackPane fx:id="Content" prefHeight="515.0" prefWidth="350.0">
+            <StackPane fx:id="Content" prefHeight="813.0" prefWidth="350.0">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="83.0" text="New Release">
+                        <Label prefHeight="20.0" prefWidth="95.0" text="New Release">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" top="15.0" />
                            </VBox.margin>
@@ -32,7 +32,7 @@
                                  <children>
                                     <ImageView fx:id="release1" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0001.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label fx:id="judul1" prefHeight="13.0" prefWidth="133.0" text="Judul1" />
@@ -45,7 +45,7 @@
                                  <children>
                                     <ImageView fx:id="release2" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0002.jpg" />
                                        </image>
                                        <VBox.margin>
                                           <Insets left="5.0" right="5.0" />
@@ -62,10 +62,10 @@
                                  <children>
                                     <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0003.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul3" />
+                                    <Label fx:id="judul3" prefHeight="13.0" prefWidth="133.0" text="Judul3" />
                                  </children>
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" />
@@ -87,10 +87,10 @@
                                  <children>
                                     <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0004.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
+                                    <Label fx:id="judul4" prefHeight="13.0" prefWidth="133.0" text="Judul4" />
                                  </children>
                                  <HBox.margin>
                                     <Insets left="10.0" right="5.0" />
@@ -100,13 +100,13 @@
                                  <children>
                                     <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0005.jpg" />
                                        </image>
                                        <VBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </VBox.margin>
                                     </ImageView>
-                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul5">
+                                    <Label fx:id="judul5" prefHeight="13.0" prefWidth="133.0" text="Judul5">
                                        <VBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </VBox.margin>
@@ -117,10 +117,10 @@
                                  <children>
                                     <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                          <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />
+                                    <Label fx:id="judul6" prefHeight="13.0" prefWidth="133.0" text="Judul6" />
                                  </children>
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" />
@@ -134,10 +134,10 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
-                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul7" />
                               </children>
                               <HBox.margin>
                                  <Insets left="10.0" right="5.0" />
@@ -147,13 +147,13 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
                                     </image>
                                     <VBox.margin>
                                        <Insets left="5.0" right="5.0" />
                                     </VBox.margin>
                                  </ImageView>
-                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul5">
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul8">
                                     <VBox.margin>
                                        <Insets left="5.0" right="5.0" />
                                     </VBox.margin>
@@ -164,10 +164,10 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
-                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />
+                                 <Label prefHeight="13.0" prefWidth="133.0" text="Judul9" />
                               </children>
                               <HBox.margin>
                                  <Insets left="5.0" right="10.0" />
@@ -184,7 +184,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
                                  <Label prefHeight="13.0" prefWidth="133.0" text="Judul4" />
@@ -197,7 +197,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
                                     </image>
                                     <VBox.margin>
                                        <Insets left="5.0" right="5.0" />
@@ -214,7 +214,7 @@
                               <children>
                                  <ImageView fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../../../assets/Apartment%2016.jpg" />
+                                       <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/A0006.jpg" />
                                     </image>
                                  </ImageView>
                                  <Label prefHeight="13.0" prefWidth="133.0" text="Judul6" />

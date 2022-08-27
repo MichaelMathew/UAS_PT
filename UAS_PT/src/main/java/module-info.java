@@ -6,6 +6,7 @@ module com.example.uas_pt {
     requires org.hibernate.orm.core;
     requires java.naming;
     requires java.persistence;
+    requires com.jfoenix;
 
 
     opens com.example.uas_pt to javafx.fxml;
