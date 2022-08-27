@@ -66,6 +66,25 @@ public class UserDao implements DaoInterface<UserEntity> {
         return uList;
     }
 
+    public UserEntity filterDataIdUser(Integer data) {
+        UserEntity uList;
+        Session s = HiberUtility.getSession();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(UserEntity.class);
+        Root<UserEntity> r = cq.from(UserEntity.class);
+        Predicate p1 = cb.equal(r.get("idUser"),data);
+        cq.where(p1);
+        try {
+            uList = (UserEntity) s.createQuery(cq).getSingleResult();
+        }
+        catch (Exception e){
+            uList = null;
+            System.out.println(e);
+        }
+        s.close();
+        return uList;
+    }
+
     @Override
     public int addData(UserEntity data) {
         int hasil = 0;

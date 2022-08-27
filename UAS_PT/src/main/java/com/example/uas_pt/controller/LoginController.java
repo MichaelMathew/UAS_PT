@@ -27,6 +27,8 @@ public class LoginController {
     ObservableList<UserEntity> user;
     UserEntity user2;
 
+    public Integer IdUser;
+
     UserDao dao;
     public void initialize(){
         dao = new UserDao();
@@ -60,8 +62,11 @@ public class LoginController {
             md5pw = sb.toString();
             user2 = dao.filterData(email.getText(),md5pw);
                 if (user2 != null){
+                    IdUser = user2.getIdUser();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
                     Parent fxml = fxmlLoader.load();
+                    ProfileController pc = new ProfileController();
+                    pc.data(IdUser);
                     Content.getChildren().removeAll();
                     Content.getChildren().setAll(fxml);
                 }else {

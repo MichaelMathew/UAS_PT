@@ -1,6 +1,7 @@
 package com.example.uas_pt.controller;
 
 import com.example.uas_pt.HelloApplication;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +23,10 @@ public class SampleController implements Initializable {
     public ImageView imgHistory;
     public ImageView imgFavorite;
     public ImageView imgProfile;
+    public JFXButton btnHome;
+    public JFXButton btnHistory;
+    public JFXButton btnFavorite;
+    public JFXButton btnProfile;
     @FXML
     private ImageView close;
 
@@ -38,6 +43,7 @@ public class SampleController implements Initializable {
         imgFavorite.setImage(imagefv);
         imgProfile.setImage(imagepf);
         close.setImage(imagecs);
+
         close.setOnMouseClicked(event-> {
             System.exit(0);
         });
@@ -58,6 +64,7 @@ public class SampleController implements Initializable {
         Parent fxml = fxmlLoader.load();
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
+
     }
 
     public void btnHistory(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -65,6 +72,7 @@ public class SampleController implements Initializable {
         Parent fxml = fxmlLoader.load();
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
+
     }
 
     public void btnFavorite(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -79,7 +87,5 @@ public class SampleController implements Initializable {
         Parent fxml = fxmlLoader.load();
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
-        ProfileController pc = fxmlLoader.getController();
-        pc.data();
     }
 }
