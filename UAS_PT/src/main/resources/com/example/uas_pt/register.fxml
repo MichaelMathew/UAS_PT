@@ -6,68 +6,78 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <Label text="Register" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="26.0" />
-         </font>
-         <BorderPane.margin>
-            <Insets top="40.0" />
-         </BorderPane.margin>
-      </Label>
-   </top>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+<AnchorPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.UserController">
+   <children>
+      <StackPane prefHeight="478.0" prefWidth="365.0">
          <children>
-            <TextField prefHeight="30.0" prefWidth="225.0" promptText="Nama">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextField>
-            <TextField prefHeight="30.0" prefWidth="225.0" promptText="Email">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </TextField>
-            <TextField prefHeight="30.0" prefWidth="225.0" promptText="Password">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextField>
-            <JFXButton prefHeight="30.0" prefWidth="225.0" style="-fx-background-color: grey;" text="Sign in">
-               <VBox.margin>
-                  <Insets top="25.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="226.0" text="If you have account">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </Label>
-            <HBox alignment="CENTER" prefWidth="225.0">
+            <VBox prefHeight="312.0" prefWidth="424.0">
                <children>
-                  <Hyperlink text="Login" />
+                  <Label alignment="CENTER" prefHeight="45.0" prefWidth="365.0" text="Register">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField prefHeight="30.0" prefWidth="225.0" promptText="Name">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField prefHeight="30.0" prefWidth="225.0" promptText="Email">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="15.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField prefHeight="30.0" prefWidth="225.0" promptText="Password">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="15.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <JFXButton onAction="#Login" prefHeight="30.0" prefWidth="365.0" style="-fx-background-color: grey;" text="Sign In">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="25.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="365.0" text="If you have account">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefWidth="225.0">
+                     <children>
+                        <Hyperlink text="Login">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
-         <BorderPane.margin>
-            <Insets left="20.0" right="20.0" top="20.0" />
-         </BorderPane.margin>
-      </VBox>
-   </center>
-</BorderPane>
+      </StackPane>
+   </children>
+</AnchorPane>
