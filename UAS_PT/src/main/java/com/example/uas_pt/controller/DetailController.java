@@ -29,8 +29,7 @@ public class DetailController {
     public void data(String id){
         Image image = new Image(getClass().getResourceAsStream("/assets/" + id + ".jpg"));
         Image fav = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
-        String urls = "/assets/" + id + ".jpg";
-        hboxstyle.setStyle("-fx-background-image: url(urls)");
+        hboxstyle.setStyle("-fx-background-image: '/assets' + id + '.jpg'");
         BookDao bdao = new BookDao();
         AuthorDao dao = new AuthorDao();
         buku = bdao.filterData(id);
@@ -46,5 +45,6 @@ public class DetailController {
     }
 
     public void readText(ActionEvent actionEvent) {
+
     }
 }

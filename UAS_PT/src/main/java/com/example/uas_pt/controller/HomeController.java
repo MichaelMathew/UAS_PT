@@ -38,12 +38,12 @@ public class HomeController {
     public void initialize(){
         BookDao dao = new BookDao();
         buku = FXCollections.observableArrayList(dao.getData());
-        Image image1 = new Image(getClass().getResourceAsStream("/assets/" + buku.get(0).getCover()));
-        Image image2 = new Image(getClass().getResourceAsStream("/assets/" + buku.get(1).getCover()));
-        Image image3 = new Image(getClass().getResourceAsStream("/assets/" + buku.get(2).getCover()));
-        Image image4 = new Image(getClass().getResourceAsStream("/assets/" + buku.get(3).getCover()));
-        Image image5 = new Image(getClass().getResourceAsStream("/assets/" + buku.get(4).getCover()));
-        Image image6 = new Image(getClass().getResourceAsStream("/assets/" + buku.get(5).getCover()));
+        Image image1 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(0).getCover())));
+        Image image2 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(1).getCover())));
+        Image image3 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(2).getCover())));
+        Image image4 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(3).getCover())));
+        Image image5 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(4).getCover())));
+        Image image6 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(5).getCover())));
         release1.setImage(image1);
         release2.setImage(image2);
         release3.setImage(image3);
@@ -61,18 +61,17 @@ public class HomeController {
 
         release1.setOnMouseClicked(event-> {
             try {
-                String str = buku.get(0).getCover();
-                String parts[] = str.split("[.]");
-                System.out.println(parts[0]);
+                String str = image1.getUrl();
+                String parts[] = str.split("/");
+                System.out.println(parts[9]);
+                String parts2[] = parts[9].split("[.]");
+                System.out.println(parts2[0]);
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
                 Parent fxml = fxmlLoader.load();
                 DetailController dc = fxmlLoader.getController();
-                dc.data(parts[0]);
+                dc.data(parts2[0]);
                 Content.getChildren().removeAll();
                 Content.getChildren().setAll(fxml);
-
-
-
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

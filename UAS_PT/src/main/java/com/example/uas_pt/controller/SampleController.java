@@ -43,7 +43,7 @@ public class SampleController implements Initializable {
         });
 
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
             Parent fxml = fxmlLoader.load();
             Content.getChildren().removeAll();
             Content.getChildren().setAll(fxml);

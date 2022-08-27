@@ -56,7 +56,7 @@
                      <children>
                         <ImageView fx:id="release1" fitHeight="130.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/assets/Apartment%2016.jpg" />
+                              <Image url="@../../../assets/A0001.jpg" />
                            </image>
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
@@ -67,16 +67,16 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                            <children>
-                              <Label prefHeight="20.0" prefWidth="220.0" text="Judul">
+                              <Label fx:id="judul" prefHeight="20.0" prefWidth="220.0" text="Judul">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Label>
-                              <Label prefHeight="20.0" prefWidth="219.0" text="Genre">
+                              <Label fx:id="genre" prefHeight="20.0" prefWidth="219.0" text="Genre">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label prefHeight="20.0" prefWidth="219.0" text="Description">
+                              <Label fx:id="deskripsi" prefHeight="20.0" prefWidth="219.0" text="Description">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
