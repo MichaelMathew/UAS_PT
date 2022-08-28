@@ -21,6 +21,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -31,24 +32,24 @@ public class HistoryController {
     ObservableList<HistoryEntity> history;
     ObservableList<HistoryEntity> fhistory;
 
-    public void initialize(){
+    public void initialize() throws IOException {
         HistoryDao dao = new HistoryDao();
-        history = FXCollections.observableArrayList(dao.getData());
+        BufferedReader reader;
+        String filename = "User/data.txt";
+        reader = new BufferedReader(new FileReader(filename));
+        String json = reader.readLine();
+        Gson g = new Gson();
+        UserEntity dataUser = g.fromJson(json, UserEntity.class);
+        int idUser = dataUser.getIdUser();
+        history = FXCollections.observableArrayList(dao.filterData(idUser));
+        reader.close();
         if (history.size() == 0){
             Label empty = new Label("Empty History");
             Content.getChildren().add(empty);
         } else {
-            BufferedReader reader;
-            String filename = "User/data.txt";
-            try {
                 scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                 scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                reader = new BufferedReader(new FileReader(filename));
-                String json = reader.readLine();
-                Gson g = new Gson();
-                UserEntity dataUser = g.fromJson(json, UserEntity.class);
-                int idUser = dataUser.getIdUser();
-                reader.close();
+
                 fhistory = FXCollections.observableArrayList(dao.filterData(idUser));
                 BookDao bdao = new BookDao();
                 AuthorDao adao = new AuthorDao();
@@ -83,9 +84,7 @@ public class HistoryController {
                     lbauthor.setMinWidth(230);
                     v.setSpacing(5);
                 }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
 
         }
     }

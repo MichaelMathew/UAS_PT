@@ -76,7 +76,7 @@
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <JFXTextArea fx:id="deskripsi" focusColor="WHITE" unFocusColor="WHITE">
+                              <JFXTextArea fx:id="description" focusColor="WHITE" unFocusColor="WHITE">
                                  <VBox.margin>
                                     <Insets bottom="5.0" top="5.0" />
                                  </VBox.margin>

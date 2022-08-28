@@ -11,8 +11,8 @@ public class MySQLConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/librarydb",
-                    "root",
+                    "jdbc:mysql://13.214.43.159:3306/librarydb",
+                    "admindbs",
                     ""
             );
         } catch (ClassNotFoundException | SQLException e) {

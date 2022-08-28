@@ -6,6 +6,7 @@ import com.example.uas_pt.dao.UserDao;
 import com.example.uas_pt.model.HistoryEntity;
 import com.example.uas_pt.model.UserEntity;
 import com.google.gson.Gson;
+import com.jfoenix.controls.JFXTextArea;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
@@ -32,8 +33,8 @@ public class ProfileController {
     public ImageView lsimage;
     public Label judul;
     public Label genre;
-    public Label deskripsi;
     public Button logout;
+    public JFXTextArea description;
 
     UserEntity user;
 
@@ -58,11 +59,14 @@ public class ProfileController {
                 lastidx = lastidx + 1;
             }
             int lastidx2 = lastidx - 1;
-            Image image = new Image(String.valueOf(getClass().getResource("/assets/" + fhistory.get(lastidx2).getBookIdBook() + ".jpg")));
-            lsimage.setImage(image);
-            judul.setText(fhistory.get(lastidx2).getBookByBookIdBook().getTitle());
-            genre.setText(fhistory.get(lastidx2).getBookByBookIdBook().getGenreByGenreIdGenre().getNamaGenre());
-            reader.close();
+            if(lastidx2 >= 0){
+                Image image = new Image(String.valueOf(getClass().getResource("/assets/" + fhistory.get(lastidx2).getBookIdBook() + ".jpg")));
+                lsimage.setImage(image);
+                judul.setText(fhistory.get(lastidx2).getBookByBookIdBook().getTitle());
+                description.setText(fhistory.get(lastidx2).getBookByBookIdBook().getDeskripsi());
+                genre.setText(fhistory.get(lastidx2).getBookByBookIdBook().getGenreByGenreIdGenre().getNamaGenre());
+                reader.close();
+            }
             logout.setOnAction(actionEvent-> {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
