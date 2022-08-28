@@ -39,6 +39,9 @@ public class IsiController {
         deskripsiDetail.setText(buku.getContent());
         unduh.setOnMouseClicked(event-> {
             FileChooser chooser = new FileChooser();
+            FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("Text Documents", "*.txt");
+            chooser.getExtensionFilters().add(extensionFilter);
+            chooser.setSelectedExtensionFilter(extensionFilter);
             File file = chooser.showSaveDialog(deskripsiDetail.getScene().getWindow());
             path = Paths.get(file.toURI());
             if (file != null) {

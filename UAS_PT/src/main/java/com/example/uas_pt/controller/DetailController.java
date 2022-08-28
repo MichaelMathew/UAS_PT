@@ -71,5 +71,22 @@ public class DetailController {
             }
 
         });
+        authorDetail.setOnAction(actionEvent -> {
+            String str = image.getUrl();
+            String parts[] = str.split("/");
+            System.out.println(parts[9]);
+            String parts2[] = parts[9].split("[.]");
+            System.out.println(parts2[0]);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("author.fxml"));
+                Parent fxml = fxmlLoader.load();
+                AuthorController ac = fxmlLoader.getController();
+                ac.data(author.getAuthorByAuthorIdAuthor().getNamaAuthor(),parts2[0]);
+                Content.getChildren().removeAll();
+                Content.getChildren().setAll(fxml);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

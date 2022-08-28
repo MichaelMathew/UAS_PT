@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.DetailController">
+<AnchorPane prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.AuthorController">
       <children>
          <StackPane fx:id="Content" prefHeight="500.0" prefWidth="350.0">
             <children>
@@ -19,7 +19,7 @@
                   <children>
                   <HBox prefHeight="35.0" prefWidth="350.0">
                      <children>
-                        <Label prefHeight="25.0" prefWidth="341.0" text="Name">
+                        <Label fx:id="name" prefHeight="25.0" prefWidth="341.0" text="Name">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -50,7 +50,7 @@
                      <children>
                         <VBox prefHeight="149.0" prefWidth="84.0">
                            <children>
-                              <ImageView fx:id="release1" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="release1" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <image>
                                     <Image url="@../../../assets/A0006.jpg" />
                                  </image>
@@ -63,15 +63,15 @@
                         </VBox>
                         <VBox prefHeight="149.0" prefWidth="84.0">
                            <children>
-                              <ImageView fx:id="release2" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../assets/A0006.jpg" />
-                                 </image>
+                              <ImageView fx:id="release2" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <VBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </VBox.margin>
+                                 <image>
+                                    <Image url="@../../../assets/A0004.jpg" />
+                                 </image>
                               </ImageView>
-                              <Label fx:id="judul2" prefHeight="13.0" prefWidth="133.0" text="Judul2">
+                              <Label fx:id="judul2" prefHeight="13.0" prefWidth="133.0" text="Judul2" visible="false">
                                  <VBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </VBox.margin>
@@ -80,12 +80,12 @@
                         </VBox>
                         <VBox prefHeight="149.0" prefWidth="84.0">
                            <children>
-                              <ImageView fx:id="release3" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="release3" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <image>
                                     <Image url="@../../../assets/A0006.jpg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="judul3" prefHeight="13.0" prefWidth="133.0" text="Judul3" />
+                              <Label fx:id="judul3" prefHeight="13.0" prefWidth="133.0" text="Judul3" visible="false" />
                            </children>
                            <HBox.margin>
                               <Insets left="5.0" right="10.0" />

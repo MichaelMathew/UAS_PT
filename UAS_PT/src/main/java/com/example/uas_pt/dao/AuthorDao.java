@@ -39,6 +39,19 @@ public class AuthorDao implements DaoInterface<AuthorEntity> {
         return bList;
     }
 
+    public AuthorEntity filterDataName(String data) {
+        AuthorEntity bList;
+        Session s = HiberUtility.getSession();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(AuthorEntity.class);
+        Root<AuthorEntity> r = cq.from(AuthorEntity.class);
+        Predicate p1 = cb.like(r.get("namaAuthor"),data);
+        cq.where(p1);
+        bList = (AuthorEntity) s.createQuery(cq).getSingleResult();
+        s.close();
+        return bList;
+    }
+
     @Override
     public int addData(AuthorEntity data) {
         int hasil = 0;
