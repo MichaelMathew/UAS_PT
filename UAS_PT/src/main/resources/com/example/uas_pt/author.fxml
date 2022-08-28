@@ -31,7 +31,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="152.0" prefWidth="350.0">
                      <children>
-                        <JFXTextArea fx:id="deskripsiDetail" editable="false">
+                        <JFXTextArea fx:id="deskripsiDetail" editable="false" focusColor="WHITE" labelFloat="true" text="fesfsefs&#10;ef&#10;se&#10;fse&#10;f&#10;sef&#10;se&#10;f&#10;sef&#10;se&#10;f&#10;sef&#10;se" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                            </HBox.margin>
