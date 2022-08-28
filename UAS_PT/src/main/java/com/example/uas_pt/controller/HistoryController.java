@@ -46,7 +46,7 @@ public class HistoryController {
         if (history.size() == 0){
             Label empty = new Label("Empty History");
             Content.getChildren().add(empty);
-            empty.setAlignment(Pos.CENTER);
+            Content.setAlignment(Pos.CENTER);
         } else {
                 scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                 scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);

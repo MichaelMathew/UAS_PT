@@ -42,7 +42,7 @@ public class FavoriteController {
         if (favorite.size() == 0) {
             Label empty = new Label("Empty Favorite");
             Content.getChildren().add(empty);
-            empty.setAlignment(Pos.CENTER);
+            Content.setAlignment(Pos.CENTER);
         } else {
 //            scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 //            scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
