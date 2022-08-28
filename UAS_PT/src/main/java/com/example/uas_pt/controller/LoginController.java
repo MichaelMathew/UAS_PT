@@ -87,10 +87,6 @@ public class LoginController {
             }
     }
 
-    public UserEntity getUser2(){
-        return user2;
-    }
-
     public void Register(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register.fxml"));
         Parent fxml = fxmlLoader.load();
