@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -41,6 +42,7 @@ public class FavoriteController {
         if (favorite.size() == 0) {
             Label empty = new Label("Empty Favorite");
             Content.getChildren().add(empty);
+            empty.setAlignment(Pos.CENTER);
         } else {
 //            scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 //            scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
