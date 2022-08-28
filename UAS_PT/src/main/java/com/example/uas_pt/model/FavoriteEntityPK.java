@@ -9,11 +9,9 @@ import java.io.Serializable;
 public class FavoriteEntityPK implements Serializable {
     @Column(name = "User_idUser")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userIdUser;
     @Column(name = "Book_idBook")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String bookIdBook;
 
     public int getUserIdUser() {

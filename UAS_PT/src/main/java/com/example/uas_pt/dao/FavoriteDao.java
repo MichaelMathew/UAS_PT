@@ -1,16 +1,12 @@
 package com.example.uas_pt.dao;
 
-import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.FavoriteEntity;
-import com.example.uas_pt.model.HistoryEntity;
+import com.example.uas_pt.model.FavoriteEntityPK;
 import com.example.uas_pt.util.HiberUtility;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 public class FavoriteDao implements DaoInterface<FavoriteEntity> {
@@ -24,6 +20,25 @@ public class FavoriteDao implements DaoInterface<FavoriteEntity> {
         fList = s.createQuery(cq).getResultList();
         s.close();
         return fList;
+    }
+
+    @Override
+    public int addData(FavoriteEntity data) {
+        int hasil = 0;
+        Session s = HiberUtility.getSession();
+        Transaction t = s.beginTransaction();
+        try{
+            s.save(data);
+            t.commit();
+            hasil = 1;
+            System.out.println(hasil);
+        }
+        catch (Exception e){
+            t.rollback();
+            System.out.println(e);
+        }
+        s.close();
+        return hasil;
     }
 
     public List<FavoriteEntity> filterData(int data){
@@ -40,38 +55,29 @@ public class FavoriteDao implements DaoInterface<FavoriteEntity> {
     }
 
     @Override
-    public int addData(FavoriteEntity data) {
-        int hasil = 0;
-        Session s = HiberUtility.getSession();
-        Transaction t = s.beginTransaction();
-        try{
-            s.save(data);
-            t.commit();
-            hasil = 1;
-
-        }
-        catch (Exception e){
-            t.rollback();
-        }
-        s.close();
-        return hasil;
+    public int deleteData(FavoriteEntity data) {
+        return 0;
     }
 
-    @Override
-    public int deleteData(FavoriteEntity data) {
+    public Integer deleteDataQuery(int data, String data2) {
         int hasil = 0;
         Session s = HiberUtility.getSession();
         Transaction t = s.beginTransaction();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaDelete<FavoriteEntity> delete = cb.createCriteriaDelete(FavoriteEntity.class);
+        Root<FavoriteEntity> e = delete.from(FavoriteEntity.class);
+        Predicate p1 = cb.equal(e.get("userIdUser"),data);
+        Predicate p2 = cb.equal(e.get("bookIdBook"),data2);
+        Predicate p3 = cb.and(p1,p2);
+        delete.where(p3);
         try{
-            s.delete(data);
+            s.createQuery(delete).executeUpdate();
             t.commit();
             hasil = 1;
-
         }
-        catch (Exception e){
+        catch (Exception ex){
             t.rollback();
         }
-        s.close();
         return hasil;
     }
 

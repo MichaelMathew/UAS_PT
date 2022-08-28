@@ -10,7 +10,6 @@ public class HistoryEntity {
     @Id
     @Column(name = "User_idUser")
     private int userIdUser;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "Book_idBook")
     private String bookIdBook;

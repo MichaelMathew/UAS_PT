@@ -4,10 +4,8 @@ import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.AuthorDao;
 import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.dao.FavoriteDao;
-import com.example.uas_pt.model.BookEntity;
-import com.example.uas_pt.model.BookHasAuthorEntity;
-import com.example.uas_pt.model.FavoriteEntity;
-import com.example.uas_pt.model.UserEntity;
+import com.example.uas_pt.dao.HistoryDao;
+import com.example.uas_pt.model.*;
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
@@ -42,6 +40,7 @@ public class DetailController {
     BookEntity buku;
     BookHasAuthorEntity author;
     ObservableList<FavoriteEntity> favorite;
+    ObservableList<HistoryEntity> history;
 
 
     public void data(String id) throws IOException {
@@ -83,11 +82,16 @@ public class DetailController {
                 Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
                 btnFavorite.setImage(favpress);
                 gmbr = false;
-
+                fdao.deleteDataQuery(idUser,id);
             } else {
                 Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "FavoriteAdded" + ".png"));
                 btnFavorite.setImage(favpress);
                 gmbr = true;
+                System.out.println(id);
+                FavoriteEntity f = new FavoriteEntity();
+                f.setBookIdBook(id);
+                f.setUserIdUser(idUser);
+                fdao.addData(f);
             }
         });
         read.setOnAction(actionEvent -> {
@@ -96,6 +100,12 @@ public class DetailController {
             System.out.println(parts[9]);
             String parts2[] = parts[9].split("[.]");
             System.out.println(parts2[0]);
+            HistoryDao hdao = new HistoryDao();
+            history = FXCollections.observableArrayList(hdao.filterData(idUser));
+            HistoryEntity h = new HistoryEntity();
+            h.setBookIdBook(id);
+            h.setUserIdUser(idUser);
+            hdao.addData(h);
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("isi.fxml"));
                 Parent fxml = fxmlLoader.load();
@@ -114,6 +124,7 @@ public class DetailController {
             System.out.println(parts[9]);
             String parts2[] = parts[9].split("[.]");
             System.out.println(parts2[0]);
+
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("author.fxml"));
                 Parent fxml = fxmlLoader.load();
