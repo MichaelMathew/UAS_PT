@@ -10,8 +10,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class IsiController {
     public StackPane Content;
@@ -20,6 +25,7 @@ public class IsiController {
     public TextArea deskripsiDetail;
     public ImageView imagepixel;
     BookEntity buku;
+    private Path path;
 
     public void data(String id) {
         Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id + ".jpg")));
@@ -31,5 +37,18 @@ public class IsiController {
         imagepixel.setImage(image);
         deskripsiDetail.setWrapText(true);
         deskripsiDetail.setText(buku.getContent());
+        unduh.setOnMouseClicked(event-> {
+            FileChooser chooser = new FileChooser();
+            File file = chooser.showSaveDialog(deskripsiDetail.getScene().getWindow());
+            path = Paths.get(file.toURI());
+            if (file != null) {
+                path = Paths.get(file.toURI());
+                try {
+                    Files.write(path, deskripsiDetail.getText().getBytes());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 }
