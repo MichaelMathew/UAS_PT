@@ -3,9 +3,15 @@ package com.example.uas_pt.controller;
 import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.AuthorDao;
 import com.example.uas_pt.dao.BookDao;
+import com.example.uas_pt.dao.FavoriteDao;
 import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.BookHasAuthorEntity;
+import com.example.uas_pt.model.FavoriteEntity;
+import com.example.uas_pt.model.UserEntity;
+import com.google.gson.Gson;
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.css.Style;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +22,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class DetailController {
@@ -29,11 +38,13 @@ public class DetailController {
     public HBox hboxstyle;
     public StackPane Content;
     public JFXButton read;
+    public Boolean gmbr = false;
     BookEntity buku;
     BookHasAuthorEntity author;
+    ObservableList<FavoriteEntity> favorite;
 
 
-    public void data(String id){
+    public void data(String id) throws IOException {
         Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id + ".jpg")));
         Image fav = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
         hboxstyle.setStyle("-fx-background-image: '/assets' + id + '.jpg'");
@@ -49,9 +60,35 @@ public class DetailController {
         authorDetail.setText(author.getAuthorByAuthorIdAuthor().getNamaAuthor());
         btnFavorite.setImage(fav);
         imageDetail.setImage(image);
+        BufferedReader reader;
+        String filename = "User/data.txt";
+        reader = new BufferedReader(new FileReader(filename));
+        String json = reader.readLine();
+        Gson g = new Gson();
+        UserEntity dataUser = g.fromJson(json, UserEntity.class);
+        int idUser = dataUser.getIdUser();
+        FavoriteDao fdao = new FavoriteDao();
+        favorite = FXCollections.observableArrayList(fdao.filterData(idUser));
+        for (FavoriteEntity f: favorite) {
+            if (f.getBookIdBook().equals(id)){
+                Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "FavoriteAdded" + ".png"));
+                btnFavorite.setImage(favpress);
+                gmbr = true;
+            }
+            break;
+        }
+
         btnFavorite.setOnMouseClicked(event-> {
-            Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "FavoriteAdded" + ".png"));
-            btnFavorite.setImage(favpress);
+            if (gmbr){
+                Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
+                btnFavorite.setImage(favpress);
+                gmbr = false;
+
+            } else {
+                Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "FavoriteAdded" + ".png"));
+                btnFavorite.setImage(favpress);
+                gmbr = true;
+            }
         });
         read.setOnAction(actionEvent -> {
             String str = image.getUrl();
@@ -88,5 +125,6 @@ public class DetailController {
                 throw new RuntimeException(e);
             }
         });
+
     }
 }
