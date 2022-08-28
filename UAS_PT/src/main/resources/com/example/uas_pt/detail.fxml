@@ -126,7 +126,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefWidth="350.0">
                      <children>
-                        <JFXButton alignment="CENTER" onAction="#readText" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: lightgrey;" text="Read">
+                        <JFXButton fx:id="read" alignment="CENTER" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: lightgrey;" text="Read">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>

@@ -2,10 +2,13 @@ package com.example.uas_pt.controller;
 
 import com.example.uas_pt.HelloApplication;
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -29,6 +32,8 @@ public class SampleController implements Initializable {
     public JFXButton btnProfile;
     @FXML
     private ImageView close;
+    public Integer idUser;
+    public Label label1;
 
 
     @Override
@@ -43,7 +48,11 @@ public class SampleController implements Initializable {
         imgFavorite.setImage(imagefv);
         imgProfile.setImage(imagepf);
         close.setImage(imagecs);
-
+        label1 = new Label();
+        Platform.runLater(() -> {
+            label1.setText(String.valueOf(idUser));
+        });
+        System.out.println(label1.getText());
         close.setOnMouseClicked(event-> {
             System.exit(0);
         });
@@ -87,5 +96,12 @@ public class SampleController implements Initializable {
         Parent fxml = fxmlLoader.load();
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
+//        ProfileController pc = fxmlLoader.getController();
+//        pc.data(Integer.parseInt(label1.getText()));
     }
+
+    public void setUser(Integer idUser) {
+        this.idUser = idUser;
+    }
+
 }

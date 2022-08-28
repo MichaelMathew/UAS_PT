@@ -15,6 +15,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 
+import javax.persistence.Id;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -33,7 +34,7 @@ public class LoginController {
     public void initialize(){
         dao = new UserDao();
     }
-    public void Login(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException {
+    public void Login() throws IOException, NoSuchAlgorithmException {
         user = FXCollections.observableArrayList(dao.getData());
         if (email.getText().isEmpty() || password.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please Fill All Field", ButtonType.OK);
@@ -64,19 +65,20 @@ public class LoginController {
                 if (user2 != null){
                     IdUser = user2.getIdUser();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
+                    FXMLLoader fxmlProfile = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
                     Parent fxml = fxmlLoader.load();
-                    ProfileController pc = new ProfileController();
-                    pc.data(IdUser);
+                    Scene scene = new Scene(fxmlProfile.load());
+                    ProfileController pc = fxmlProfile.getController();
+
+                    pc.setUser(IdUser);
                     Content.getChildren().removeAll();
                     Content.getChildren().setAll(fxml);
                 }else {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Email or Password Wrong", ButtonType.OK);
                     alert.showAndWait();
-
                 }
             }
-
-            }
+    }
 
     public void Register(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register.fxml"));

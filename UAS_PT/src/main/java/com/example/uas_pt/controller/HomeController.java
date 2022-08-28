@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -70,7 +71,6 @@ public class HomeController {
                 Parent fxml = fxmlLoader.load();
                 DetailController dc = fxmlLoader.getController();
                 dc.data(parts2[0]);
-                Content.getChildren().removeAll();
                 Content.getChildren().setAll(fxml);
             } catch (IOException e) {
                 throw new RuntimeException(e);
