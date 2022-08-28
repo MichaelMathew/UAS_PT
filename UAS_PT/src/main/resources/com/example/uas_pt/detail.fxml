@@ -4,7 +4,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,132 +16,132 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.DetailController">
-      <AnchorPane prefHeight="500.0" prefWidth="340.0">
-         <children>
-            <StackPane fx:id="Content" prefHeight="500.0" prefWidth="350.0">
-               <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+
+   <AnchorPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.DetailController">
+      <children>
+         <StackPane fx:id="Content" prefHeight="500.0" prefWidth="365.0">
+            <children>
+               <VBox prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                     <HBox fx:id="hboxstyle" alignment="CENTER_LEFT" prefHeight="176.0" prefWidth="350.0" style="-fx-background-image: url(&quot;file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/main/resources/assets/A0006.jpg&quot;); -fx-background-position: 50 -80; -fx-border-image-width: 100%;">
                      <children>
-                        <HBox fx:id="hboxstyle" alignment="CENTER_LEFT" prefHeight="176.0" prefWidth="350.0" style="-fx-background-image: url(&quot;file:/D:/Repo/UAS/UAS_PT/UAS_PT/src/main/resources/assets/A0006.jpg&quot;); -fx-background-position: 50 -80; -fx-border-image-width: 100%;">
-                        <children>
-                           <ImageView fx:id="imageDetail" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: border;">
-                              <image>
-                                 <Image url="@../../../assets/A0006.jpg" />
-                              </image>
-                              <HBox.margin>
-                                 <Insets left="10.0" />
-                              </HBox.margin>
-                           </ImageView>
-                        </children>
-                        </HBox>
-                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
-                        <VBox.margin>
-                           <Insets top="5.0" />
-                        </VBox.margin>
-                        <children>
-                           <VBox prefHeight="88.0" prefWidth="330.0">
-                              <children>
-                                 <Label fx:id="judulDetail" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="331.0" text="Judul (Tahun)">
-                                    <font>
-                                       <Font name="System Bold" size="14.0" />
-                                    </font>
-                                 </Label>
-                                 <Label fx:id="genreDetail" alignment="TOP_LEFT" prefWidth="181.0" text="Genre">
-                                    <VBox.margin>
-                                       <Insets top="5.0" />
-                                    </VBox.margin>
-                                 </Label>
-                              </children>
-                              <HBox.margin>
-                                 <Insets left="10.0" right="10.0" />
-                              </HBox.margin>
-                           </VBox>
-                        </children>
-                     </HBox>
-                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
-                        <children>
-                           <GridPane alignment="CENTER" prefHeight="50.0" prefWidth="55.0" style="-fx-background-color: white;">
-                             <columnConstraints>
-                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                             </columnConstraints>
-                             <rowConstraints>
-                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                             </rowConstraints>
-                              <children>
-                                 <ImageView fx:id="btnFavorite" fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                    <image>
-                                       <Image url="@../../../assets/Favorite.png" />
-                                    </image>
-                                    <cursor>
-                                       <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                 </ImageView>
-                                 <Label text="Rating" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                                 <Label fx:id="ratingDetail" text="8.9" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                              </children>
-                              <HBox.margin>
-                                 <Insets right="10.0" />
-                              </HBox.margin>
-                           </GridPane>
-                        </children>
-                     </HBox>
-                     <HBox alignment="CENTER" prefHeight="110.0" prefWidth="350.0">
-                        <children>
-                           <TextArea fx:id="deskripsiDetail" prefHeight="90.0" prefWidth="331.0">
-                              <HBox.margin>
-                                 <Insets left="10.0" right="10.0" top="10.0" />
-                              </HBox.margin>
-                           </TextArea>
-                        </children>
-                     </HBox>
-                     <HBox alignment="CENTER" prefHeight="45.0" prefWidth="350.0">
-                        <children>
-                           <VBox prefHeight="88.0" prefWidth="330.0">
-                              <children>
-                                 <Label alignment="TOP_LEFT" prefWidth="181.0" text="About Author">
-                                    <font>
-                                       <Font name="System Bold" size="14.0" />
-                                    </font>
-                                    <VBox.margin>
-                                       <Insets left="5.0" />
-                                    </VBox.margin>
-                                 </Label>
-                                 <JFXButton fx:id="authorDetail" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="166.0" text="Name">
-                                    <cursor>
-                                       <Cursor fx:constant="HAND" />
-                                    </cursor></JFXButton>
-                              </children>
-                              <HBox.margin>
-                                 <Insets right="10.0" />
-                              </HBox.margin>
-                           </VBox>
-                        </children>
-                        <VBox.margin>
-                           <Insets top="10.0" />
-                        </VBox.margin>
-                     </HBox>
-                     <HBox alignment="CENTER_RIGHT" prefWidth="350.0">
-                        <children>
-                           <JFXButton alignment="CENTER" onAction="#readText" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: lightgrey;" text="Read">
-                              <HBox.margin>
-                                 <Insets right="10.0" />
-                              </HBox.margin>
-                              <cursor>
-                                 <Cursor fx:constant="HAND" />
-                              </cursor>
-                           </JFXButton>
-                        </children>
-                        <VBox.margin>
-                           <Insets top="10.0" />
-                        </VBox.margin>
-                     </HBox>
+                        <ImageView fx:id="imageDetail" fitHeight="155.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: border;">
+                           <image>
+                              <Image url="@../../../assets/A0006.jpg" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
                      </children>
-                  </VBox>
-               </children>
-            </StackPane>
-         </children>
-      </AnchorPane>
-</ScrollPane>
+                     </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox prefHeight="88.0" prefWidth="330.0">
+                           <children>
+                              <Label fx:id="judulDetail" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="331.0" text="Judul (Tahun)">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="genreDetail" alignment="TOP_LEFT" prefWidth="181.0" text="Genre">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
+                     <children>
+                        <GridPane alignment="CENTER" prefHeight="50.0" prefWidth="55.0" style="-fx-background-color: white;">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fx:id="btnFavorite" fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../assets/Favorite.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <Label text="Rating" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Label fx:id="ratingDetail" text="8.9" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                           </children>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="350.0">
+                     <children>
+                        <TextArea fx:id="deskripsiDetail" prefHeight="90.0" prefWidth="331.0">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="350.0">
+                     <children>
+                        <VBox prefHeight="88.0" prefWidth="330.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" prefWidth="181.0" text="About Author">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <JFXButton fx:id="authorDetail" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="166.0" text="Name">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefWidth="350.0">
+                     <children>
+                        <JFXButton alignment="CENTER" onAction="#readText" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: lightgrey;" text="Read">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  </children>
+               </VBox>
+            </children>
+         </StackPane>
+      </children>
+   </AnchorPane>
