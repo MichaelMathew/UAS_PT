@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -31,6 +32,7 @@ public class HomeController {
     public ImageView release2;
     public ImageView release3;
     public ImageView library1;
+    public ScrollPane scPan;
 
 
     ObservableList<BookEntity> buku;
@@ -62,10 +64,12 @@ public class HomeController {
 
         release1.setOnMouseClicked(event-> {
             try {
+                scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                 String str = image1.getUrl();
                 String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
+                System.out.println(parts[10]);
+                String parts2[] = parts[10].split("[.]");
                 System.out.println(parts2[0]);
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
                 Parent fxml = fxmlLoader.load();
