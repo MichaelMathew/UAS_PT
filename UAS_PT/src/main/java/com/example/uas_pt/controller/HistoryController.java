@@ -70,7 +70,7 @@ public class HistoryController {
                     v.setMaxHeight(149);
                     v.setMaxWidth(84);
                     v.getChildren().add(hbox);
-                    v.setMargin(hbox,new Insets(0,0,0,-20));
+                    v.setMargin(hbox,new Insets(0,0,0,5));
                     hbox.getChildren().add(i1);
                     hbox.getChildren().add(v2);
                     v2.getChildren().add(lbjudul);
