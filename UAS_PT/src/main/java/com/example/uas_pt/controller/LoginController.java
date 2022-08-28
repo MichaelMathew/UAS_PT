@@ -4,6 +4,7 @@ import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.UserDao;
 import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.UserEntity;
+import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,8 +15,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import javax.persistence.Id;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -29,6 +33,7 @@ public class LoginController {
     UserEntity user2;
 
     public Integer IdUser;
+    private Stage stage;
 
     UserDao dao;
     public void initialize(){
@@ -63,14 +68,16 @@ public class LoginController {
             md5pw = sb.toString();
             user2 = dao.filterData(email.getText(),md5pw);
                 if (user2 != null){
-                    IdUser = user2.getIdUser();
+                    user2.setPassword(null);
+                    BufferedWriter writer;
+                    String filename = "User/data.txt";
+                    writer = new BufferedWriter(new FileWriter(filename));
+                    Gson g = new Gson();
+                    String json = g.toJson(user2);
+                    writer.write(json);
+                    writer.close();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
-                    FXMLLoader fxmlProfile = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
                     Parent fxml = fxmlLoader.load();
-                    Scene scene = new Scene(fxmlProfile.load());
-                    ProfileController pc = fxmlProfile.getController();
-
-                    pc.setUser(IdUser);
                     Content.getChildren().removeAll();
                     Content.getChildren().setAll(fxml);
                 }else {
@@ -80,10 +87,16 @@ public class LoginController {
             }
     }
 
+    public UserEntity getUser2(){
+        return user2;
+    }
+
     public void Register(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register.fxml"));
         Parent fxml = fxmlLoader.load();
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
     }
+
+
 }

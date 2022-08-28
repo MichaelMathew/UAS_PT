@@ -4,20 +4,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.HistoryController">
    <children>
-      <StackPane fx:id="Content" prefHeight="500.0" prefWidth="350.0" AnchorPane.topAnchor="0.0">
+      <Label text="History" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <StackPane fx:id="Content" prefHeight="502.0" prefWidth="350.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="History">
+            <VBox fx:id="v" prefHeight="452.0" prefWidth="350.0">
                <StackPane.margin>
-                  <Insets right="260.0" top="-450.0" />
+                  <Insets top="50.0" />
                </StackPane.margin>
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
+            </VBox>
          </children>
       </StackPane>
    </children>

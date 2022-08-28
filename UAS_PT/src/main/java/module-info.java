@@ -7,6 +7,7 @@ module com.example.uas_pt {
     requires java.naming;
     requires java.persistence;
     requires com.jfoenix;
+    requires com.google.gson;
 
 
     opens com.example.uas_pt to javafx.fxml;

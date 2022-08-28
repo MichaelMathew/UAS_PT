@@ -26,13 +26,13 @@ public class HistoryDao implements DaoInterface<HistoryEntity> {
         return hList;
     }
 
-    public List<HistoryEntity> filterData(String data){
+    public List<HistoryEntity> filterData(int data){
         List<HistoryEntity> hList;
         Session s = HiberUtility.getSession();
         CriteriaBuilder cb = s.getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery(HistoryEntity.class);
         Root<HistoryEntity> r = cq.from(HistoryEntity.class);
-        Predicate p1 = cb.like(r.get("userIdUser"),data);
+        Predicate p1 = cb.equal(r.get("userIdUser"),data);
         cq.where(p1);
         hList = s.createQuery(cq).getResultList();
         s.close();
