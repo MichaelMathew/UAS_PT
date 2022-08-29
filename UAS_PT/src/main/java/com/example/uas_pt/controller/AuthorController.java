@@ -8,6 +8,8 @@ import com.example.uas_pt.model.BookHasAuthorEntity;
 import com.example.uas_pt.model.HistoryEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -45,6 +47,11 @@ public class AuthorController {
             v.getChildren().add(i1);
             v.getChildren().add(ljudul);
             h.getChildren().add(v);
+            i1.setFitHeight(172);
+            i1.setFitWidth(102);
+            h.setAlignment(Pos.TOP_LEFT);
+            ljudul.setMaxWidth(102);
+            h.setMargin(v,new Insets(0,0,0,10));
         }
     }
 }

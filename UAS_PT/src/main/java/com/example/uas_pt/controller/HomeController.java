@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -63,9 +64,15 @@ public class HomeController {
         buku = FXCollections.observableArrayList(dao.getData());
         HBox hbox = new HBox();
         int number = 0;
+        Label lblibrary = new Label();
+        lblibrary.setText("Library");
+        lblibrary.setStyle("-fx-font-family: System; -fx-font-size: 14px;-fx-font-weight: bold");
+        v.getChildren().add(lblibrary);
+        v.setMargin(lblibrary,new Insets(20,0,0,10));
         for (BookEntity b : buku) {
             if (number == 3){
                 v.getChildren().add(hbox);
+//                v.setSpacing(5);
                 hbox = new HBox();
                 System.out.println("s");
                 number = 0;
@@ -75,17 +82,20 @@ public class HomeController {
             VBox v2 = new VBox();
             Label lbjudul = new Label();
             lbjudul.setText(b.getTitle());
+            lbjudul.setMaxWidth(102);
             i1.setImage(image);
+            hbox.setMargin(v2,new Insets(20,10,0,10));
             v2.getChildren().add(i1);
             v2.getChildren().add(lbjudul);
+            v2.setSpacing(10);
             hbox.getChildren().add(v2);
-            i1.setFitHeight(97.5);
-            i1.setFitWidth(67.5);
+            i1.setFitHeight(172);
+            i1.setFitWidth(102);
             i1.setOnMouseClicked(Event -> {
                 String str = image.getUrl();
                 String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
+                System.out.println(parts[10]);
+                String parts2[] = parts[10].split("[.]");
                 System.out.println(parts2[0]);
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
