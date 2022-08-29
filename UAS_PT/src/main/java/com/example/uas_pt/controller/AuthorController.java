@@ -31,10 +31,7 @@ public class AuthorController {
         deskripsiDetail.setText(author.getDeskripsiAuthor());
         release1.setImage(image);
         release1.setVisible(true);
-        release1.setFitHeight(172);
-        release1.setFitWidth(102);
         buku = bdao.filterData(id);
         judul1.setText(buku.getTitle());
-        judul1.setMinWidth(200);
     }
 }
