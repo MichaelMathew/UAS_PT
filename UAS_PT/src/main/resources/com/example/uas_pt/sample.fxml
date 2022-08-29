@@ -27,7 +27,7 @@
       </AnchorPane>
    </center>
    <bottom>
-      <GridPane alignment="CENTER" prefHeight="36.0" prefWidth="260.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="45.0" prefWidth="260.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -51,7 +51,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnHome" prefHeight="25.0" prefWidth="95.0" text="For You">
+                  <JFXButton onAction="#btnHome" prefHeight="25.0" prefWidth="100.0" text="For You">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
@@ -71,7 +71,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnHistory" prefHeight="25.0" prefWidth="97.0" text="History">
+                  <JFXButton onAction="#btnHistory" prefHeight="25.0" prefWidth="100.0" text="History">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
@@ -91,7 +91,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnFavorite" prefHeight="25.0" prefWidth="97.0" text="Favorite">
+                  <JFXButton onAction="#btnFavorite" prefHeight="25.0" prefWidth="100.0" text="Favorite">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
@@ -111,7 +111,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnProfile" prefHeight="25.0" prefWidth="98.0" text="Profile">
+                  <JFXButton onAction="#btnProfile" prefHeight="25.0" prefWidth="100.0" text="Profile">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
