@@ -4,9 +4,12 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:mysql://13.214.43.159:3306/librarydb</property>
+<!--    <property name="connection.url">jdbc:mysql://13.214.43.159:3306/librarydb</property>-->
+<!--    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+<!--    <property name="connection.username">admindbs</property>-->
+    <property name="connection.url">jdbc:mysql://localhost:3306/librarydb</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="connection.username">admindbs</property>
+    <property name="connection.username">root</property>
     <mapping class="com.example.uas_pt.model.AuthorEntity"/>
     <mapping class="com.example.uas_pt.model.BookEntity"/>
     <mapping class="com.example.uas_pt.model.BookHasAuthorEntity"/>

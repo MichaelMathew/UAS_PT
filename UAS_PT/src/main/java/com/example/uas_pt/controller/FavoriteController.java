@@ -1,5 +1,6 @@
 package com.example.uas_pt.controller;
 
+import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.AuthorDao;
 import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.dao.FavoriteDao;
@@ -7,8 +8,10 @@ import com.example.uas_pt.model.*;
 import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -39,13 +42,21 @@ public class FavoriteController {
         int idUser = dataUser.getIdUser();
         favorite = FXCollections.observableArrayList(dao.filterData(idUser));
         reader.close();
+        Label lbFavorite = new Label();
+        lbFavorite.setText("Favorite");
+        lbFavorite.setStyle("-fx-font-family: System; -fx-font-size: 22px;");
+        Content.getChildren().add(lbFavorite);
+        Content.setAlignment(Pos.TOP_LEFT);
+        Content.setMargin(lbFavorite,new Insets(10,0,0,10));
         if (favorite.size() == 0) {
+            HBox hbox = new HBox();
             Label empty = new Label("Empty Favorite");
-            Content.getChildren().add(empty);
-            Content.setAlignment(Pos.CENTER);
+            hbox.getChildren().add(empty);
+            hbox.setAlignment(Pos.CENTER);
+            Content.getChildren().add(hbox);
         } else {
-//            scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-//            scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
             BookDao bdao = new BookDao();
             AuthorDao adao = new AuthorDao();
             for (FavoriteEntity f : favorite) {
@@ -63,6 +74,23 @@ public class FavoriteController {
                 i1.setImage(image);
                 i1.setFitHeight(97.5);
                 i1.setFitWidth(67.5);
+                i1.setOnMouseClicked(Event ->{
+                    String str = image.getUrl();
+                    String parts[] = str.split("/");
+                    System.out.println(parts[9]);
+                    String parts2[] = parts[9].split("[.]");
+                    System.out.println(parts2[0]);
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                        Parent fxml = fxmlLoader.load();
+                        DetailController dc = fxmlLoader.getController();
+                        dc.data(parts2[0]);
+                        Content.getChildren().setAll(fxml);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                });
                 v.setMaxHeight(149);
                 v.setMaxWidth(84);
                 v.getChildren().add(hbox);

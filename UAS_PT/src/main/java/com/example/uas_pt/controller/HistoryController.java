@@ -1,5 +1,6 @@
 package com.example.uas_pt.controller;
 
+import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.AuthorDao;
 import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.dao.HistoryDao;
@@ -7,8 +8,11 @@ import com.example.uas_pt.model.*;
 import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -43,24 +47,31 @@ public class HistoryController {
         int idUser = dataUser.getIdUser();
         history = FXCollections.observableArrayList(dao.filterData(idUser));
         reader.close();
+        Label lbHistory = new Label();
+        lbHistory.setText("History");
+        lbHistory.setStyle("-fx-font-family: System; -fx-font-size: 22px;");
+        Content.getChildren().add(lbHistory);
+        Content.setAlignment(Pos.TOP_LEFT);
+        Content.setMargin(lbHistory,new Insets(10,0,0,10));
         if (history.size() == 0){
+            HBox hbox = new HBox();
             Label empty = new Label("Empty History");
-            Content.getChildren().add(empty);
-            Content.setAlignment(Pos.CENTER);
+            hbox.getChildren().add(empty);
+            hbox.setAlignment(Pos.CENTER);
+            Content.getChildren().add(hbox);
         } else {
                 scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                 scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
                 fhistory = FXCollections.observableArrayList(dao.filterData(idUser));
                 BookDao bdao = new BookDao();
                 AuthorDao adao = new AuthorDao();
-
                 for (HistoryEntity h: fhistory) {
                     BookEntity judul = bdao.filterData(h.getBookIdBook());
                     BookHasAuthorEntity author = adao.filterData(h.getBookIdBook());
                     Image image = new Image(String.valueOf(getClass().getResource("/assets/" + h.getBookIdBook() + ".jpg")));
                     ImageView i1 = new ImageView();
                     HBox hbox = new HBox();
+
                     Label lbjudul = new Label();
                     Label lbauthor = new Label();
                     VBox v2 = new VBox();
@@ -69,6 +80,23 @@ public class HistoryController {
                     i1.setImage(image);
                     i1.setFitHeight(97.5);
                     i1.setFitWidth(67.5);
+                    i1.setOnMouseClicked(Event ->{
+                        String str = image.getUrl();
+                        String parts[] = str.split("/");
+                        System.out.println(parts[9]);
+                        String parts2[] = parts[9].split("[.]");
+                        System.out.println(parts2[0]);
+                        try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                            Parent fxml = fxmlLoader.load();
+                            DetailController dc = fxmlLoader.getController();
+                            dc.data(parts2[0]);
+                            Content.getChildren().setAll(fxml);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                    });
                     v.setMaxHeight(149);
                     v.setMaxWidth(84);
                     v.getChildren().add(hbox);

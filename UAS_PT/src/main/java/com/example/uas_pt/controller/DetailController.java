@@ -74,7 +74,6 @@ public class DetailController {
                 btnFavorite.setImage(favpress);
                 gmbr = true;
             }
-            break;
         }
 
         btnFavorite.setOnMouseClicked(event-> {
@@ -87,7 +86,6 @@ public class DetailController {
                 Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "FavoriteAdded" + ".png"));
                 btnFavorite.setImage(favpress);
                 gmbr = true;
-                System.out.println(id);
                 FavoriteEntity f = new FavoriteEntity();
                 f.setBookIdBook(id);
                 f.setUserIdUser(idUser);
