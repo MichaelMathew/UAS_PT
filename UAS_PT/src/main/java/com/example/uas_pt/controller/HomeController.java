@@ -50,23 +50,26 @@ public class HomeController {
         newReleaseBook();
         Label lblibrary = new Label();
         lblibrary.setText("Library");
-        lblibrary.setStyle("-fx-font-family: System; -fx-font-size: 14px;-fx-font-weight: bold");
+        lblibrary.setStyle("-fx-font-family: System; -fx-font-size: 16px;-fx-font-weight: bold");
         ComboBox cmbGenre = new ComboBox();
         ObservableList<GenreEntity> genre = FXCollections.observableArrayList(gdao.getData());
-        cmbGenre.getItems().add(0,"ALL");
+        cmbGenre.getItems().add(0,"All");
         cmbGenre.getItems().addAll(genre);
         cmbGenre.getSelectionModel().select(0);
         cmbGenre.setOnAction(ActionEvent-> {
             v.getChildren().clear();
-            if (cmbGenre.getSelectionModel().getSelectedItem() == "ALL") {
+            if (cmbGenre.getSelectionModel().getSelectedItem() == "All") {
                 newReleaseBook();
                 Label lblibrarys = new Label();
                 lblibrarys.setText("Library");
-                lblibrarys.setStyle("-fx-font-family: System; -fx-font-size: 14px;-fx-font-weight: bold");
-                cmbGenre.getItems();
-                v.getChildren().add(lblibrarys);
-                v.getChildren().add(cmbGenre);
-                v.setMargin(lblibrarys,new Insets(20,0,0,10));
+                lblibrarys.setStyle("-fx-font-family: System; -fx-font-size: 16px;-fx-font-weight: bold");
+                HBox h = new HBox();
+                v.getChildren().add(h);
+                h.getChildren().add(lblibrary);
+                h.getChildren().add(cmbGenre);
+                h.setMargin(lblibrary,new Insets(0,180,0,0));
+                h.setMargin(cmbGenre,new Insets(0,0,0,0));
+                v.setMargin(h,new Insets(20,10,20,10));
                 LibraryBook();
             } else {
                 newReleaseBook();
@@ -76,20 +79,29 @@ public class HomeController {
                 System.out.println(buku3);
                 Label lblibrarys = new Label();
                 lblibrarys.setText("Library");
-                lblibrarys.setStyle("-fx-font-family: System; -fx-font-size: 14px;-fx-font-weight: bold");
+                lblibrarys.setStyle("-fx-font-family: System; -fx-font-size: 16px;-fx-font-weight: bold");
                 cmbGenre.getItems();
-                v.getChildren().add(lblibrarys);
-                v.getChildren().add(cmbGenre);
-                v.setMargin(lblibrarys,new Insets(20,0,0,10));
-//                LibraryBook();
+                HBox h = new HBox();
+                v.getChildren().add(h);
+                h.getChildren().add(lblibrary);
+                h.getChildren().add(cmbGenre);
+                h.setMargin(lblibrary,new Insets(0,180,0,0));
+                h.setMargin(cmbGenre,new Insets(0,0,0,0));
+                v.setMargin(h,new Insets(20,10,0,10));
                 BookfilterGenre(buku3);
                 System.out.println(buku);
             }
 
         });
-        v.getChildren().add(lblibrary);
-        v.getChildren().add(cmbGenre);
-        v.setMargin(lblibrary,new Insets(20,0,0,10));
+        HBox h = new HBox();
+        v.getChildren().add(h);
+        h.getChildren().add(lblibrary);
+        h.getChildren().add(cmbGenre);
+        lblibrary.setPrefWidth(120);
+        cmbGenre.setPrefWidth(150);
+        h.setMargin(lblibrary,new Insets(0,150,0,0));
+        h.setMargin(cmbGenre,new Insets(0,0,0,0));
+        v.setMargin(h,new Insets(20,10,20,10));
         LibraryBook();
     }
     public void BookfilterGenre(ObservableList<BookEntity> buku3){
@@ -136,9 +148,9 @@ public class HomeController {
     public void newReleaseBook(){
         Label lbnew = new Label();
         lbnew.setText("New Release");
-        lbnew.setStyle("-fx-font-family: System; -fx-font-size: 14px;-fx-font-weight: bold");
+        lbnew.setStyle("-fx-font-family: System; -fx-font-size: 16px;-fx-font-weight: bold");
         v.getChildren().add(lbnew);
-        v.setMargin(lbnew,new Insets(20,0,0,10));
+        v.setMargin(lbnew,new Insets(20,0,-5,10));
         int number = 0;
         HBox hbox1 = new HBox();
         v.getChildren().add(hbox1);
@@ -156,10 +168,10 @@ public class HomeController {
             lbjudul.setText(b.getTitle());
             lbjudul.setMaxWidth(102);
             i.setImage(image);
-            hbox1.setMargin(v2,new Insets(20,10,0,10));
+            hbox1.setMargin(v2,new Insets(20,10,5,10));
             v2.getChildren().add(i);
             v2.getChildren().add(lbjudul);
-            v2.setSpacing(10);
+            v2.setSpacing(5);
             hbox1.getChildren().add(v2);
             i.setFitHeight(172);
             i.setFitWidth(102);
@@ -197,10 +209,10 @@ public class HomeController {
             lbjudul.setText(b.getTitle());
             lbjudul.setMaxWidth(102);
             i1.setImage(image);
-            hbox.setMargin(v2,new Insets(20,10,0,10));
+            hbox.setMargin(v2,new Insets(0,10,20,10));
             v2.getChildren().add(i1);
             v2.getChildren().add(lbjudul);
-            v2.setSpacing(10);
+            v2.setSpacing(5);
             hbox.getChildren().add(v2);
             i1.setFitHeight(172);
             i1.setFitWidth(102);
