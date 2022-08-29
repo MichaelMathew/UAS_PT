@@ -3,6 +3,7 @@ package com.example.uas_pt.controller;
 import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.model.BookEntity;
+import com.example.uas_pt.model.HistoryEntity;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +17,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
@@ -36,161 +39,54 @@ public class HomeController {
     public ImageView library1;
     public ScrollPane scPan;
     public JFXComboBox cmbGenre;
-
+    public ImageView library4;
+    public Label judul7;
+    public ImageView library5;
+    public Label judul8;
+    public ImageView library6;
+    public Label judul9;
+    public ImageView library7;
+    public Label judul10;
+    public ImageView library8;
+    public Label judul11;
+    public ImageView library9;
+    public Label judul12;
+    public VBox v;
 
     ObservableList<BookEntity> buku;
 
 
-    public void initialize(){
-        ObservableList<String> genre = FXCollections.observableArrayList("All","Romance","Science Fiction","Thriller","Historical","Horror");
-        cmbGenre.setItems(genre);
-        cmbGenre.getSelectionModel().select(0);
+    public void initialize() {
         scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         BookDao dao = new BookDao();
         buku = FXCollections.observableArrayList(dao.getData());
-        Image image1 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(0).getCover())));
-        Image image2 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(1).getCover())));
-        Image image3 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(2).getCover())));
-        Image image4 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(3).getCover())));
-        Image image5 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(4).getCover())));
-        Image image6 = new Image(String.valueOf(getClass().getResource("/assets/" + buku.get(5).getCover())));
-        release1.setImage(image1);
-        release2.setImage(image2);
-        release3.setImage(image3);
-        library1.setImage(image4);
-        library2.setImage(image5);
-        library3.setImage(image6);
-
-        judul1.setText(buku.get(0).getTitle());
-        judul2.setText(buku.get(1).getTitle());
-        judul3.setText(buku.get(2).getTitle());
-        judul4.setText(buku.get(3).getTitle());
-        judul5.setText(buku.get(4).getTitle());
-        judul6.setText(buku.get(5).getTitle());
-
-
-        release1.setOnMouseClicked(event-> {
-            try {
-                scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                String str = image1.getUrl();
+        for (BookEntity b : buku) {
+            Image image = new Image(String.valueOf(getClass().getResource("/assets/" + b.getIdBook() + ".jpg")));
+            ImageView i1 = new ImageView();
+            HBox hbox = new HBox();
+            i1.setImage(image);
+            i1.setFitHeight(97.5);
+            i1.setFitWidth(67.5);
+            i1.setOnMouseClicked(Event -> {
+                String str = image.getUrl();
                 String parts[] = str.split("/");
                 System.out.println(parts[9]);
                 String parts2[] = parts[9].split("[.]");
                 System.out.println(parts2[0]);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                Parent fxml = fxmlLoader.load();
-                DetailController dc = fxmlLoader.getController();
-                dc.data(parts2[0]);
-                Content.getChildren().setAll(fxml);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                    Parent fxml = fxmlLoader.load();
+                    DetailController dc = fxmlLoader.getController();
+                    dc.data(parts2[0]);
+                    Content.getChildren().setAll(fxml);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
-        });
-
-        release2.setOnMouseClicked(event-> {
-            try {
-                scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                String str = image2.getUrl();
-                String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
-                System.out.println(parts2[0]);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                Parent fxml = fxmlLoader.load();
-                DetailController dc = fxmlLoader.getController();
-                dc.data(parts2[0]);
-                Content.getChildren().setAll(fxml);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        });
-
-        release3.setOnMouseClicked(event-> {
-            try {
-                scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                String str = image3.getUrl();
-                String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
-                System.out.println(parts2[0]);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                Parent fxml = fxmlLoader.load();
-                DetailController dc = fxmlLoader.getController();
-                dc.data(parts2[0]);
-                Content.getChildren().setAll(fxml);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        });
-
-        library1.setOnMouseClicked(event-> {
-            try {
-                scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                String str = image4.getUrl();
-                String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
-                System.out.println(parts2[0]);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                Parent fxml = fxmlLoader.load();
-                DetailController dc = fxmlLoader.getController();
-                dc.data(parts2[0]);
-                Content.getChildren().setAll(fxml);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        });
-
-        library2.setOnMouseClicked(event-> {
-            try {
-                scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                String str = image5.getUrl();
-                String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
-                System.out.println(parts2[0]);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                Parent fxml = fxmlLoader.load();
-                DetailController dc = fxmlLoader.getController();
-                dc.data(parts2[0]);
-                Content.getChildren().setAll(fxml);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        });
-
-        library3.setOnMouseClicked(event-> {
-            try {
-                scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                String str = image6.getUrl();
-                String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
-                System.out.println(parts2[0]);
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                Parent fxml = fxmlLoader.load();
-                DetailController dc = fxmlLoader.getController();
-                dc.data(parts2[0]);
-                Content.getChildren().setAll(fxml);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        });
-    }
-
-    public void filtergenre(ActionEvent actionEvent) {
+            });
+            hbox.getChildren().add(i1);
+            Content.getChildren().add(hbox);
+        }
     }
 }

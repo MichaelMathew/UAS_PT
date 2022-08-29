@@ -10,7 +10,7 @@
          <children>
             <StackPane fx:id="Content" prefHeight="813.0" prefWidth="350.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox fx:id="v" prefHeight="200.0" prefWidth="100.0" />
                </children>
             </StackPane>
          </children>
