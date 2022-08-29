@@ -61,26 +61,31 @@ public class HomeController {
         scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         BookDao dao = new BookDao();
         buku = FXCollections.observableArrayList(dao.getData());
+        HBox hbox = new HBox();
+        int number = 0;
         for (BookEntity b : buku) {
+            if (number == 3){
+                v.getChildren().add(hbox);
+                hbox = new HBox();
+                System.out.println("s");
+                number = 0;
+            }
             Image image = new Image(String.valueOf(getClass().getResource("/assets/" + b.getIdBook() + ".jpg")));
             ImageView i1 = new ImageView();
-            HBox hbox = new HBox();
-            HBox hbox2 = new HBox();
             VBox v2 = new VBox();
             Label lbjudul = new Label();
-            lbjudul.setText("asal");
+            lbjudul.setText(b.getTitle());
             i1.setImage(image);
             v2.getChildren().add(i1);
             v2.getChildren().add(lbjudul);
             hbox.getChildren().add(v2);
-            v.getChildren().add(hbox);
             i1.setFitHeight(97.5);
             i1.setFitWidth(67.5);
             i1.setOnMouseClicked(Event -> {
                 String str = image.getUrl();
                 String parts[] = str.split("/");
-                System.out.println(parts[10]);
-                String parts2[] = parts[10].split("[.]");
+                System.out.println(parts[9]);
+                String parts2[] = parts[9].split("[.]");
                 System.out.println(parts2[0]);
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
@@ -92,6 +97,7 @@ public class HomeController {
                     throw new RuntimeException(e);
                 }
             });
+            number ++;
         }
     }
 }

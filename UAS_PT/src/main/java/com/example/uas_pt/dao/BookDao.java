@@ -1,6 +1,8 @@
 package com.example.uas_pt.dao;
 
 import com.example.uas_pt.model.BookEntity;
+import com.example.uas_pt.model.BookHasAuthorEntity;
+import com.example.uas_pt.model.GenreEntity;
 import com.example.uas_pt.util.HiberUtility;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -33,6 +35,58 @@ public class BookDao implements DaoInterface<BookEntity> {
         Predicate p1 = cb.like(r.get("idBook"),data);
         cq.where(p1);
         bList = (BookEntity) s.createQuery(cq).getSingleResult();
+        s.close();
+        return bList;
+    }
+
+    public List<BookHasAuthorEntity> filterDataAuthor(int data) {
+        List<BookHasAuthorEntity> bList;
+        Session s = HiberUtility.getSession();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(BookHasAuthorEntity.class);
+        Root<BookHasAuthorEntity> r = cq.from(BookHasAuthorEntity.class);
+        Predicate p1 = cb.equal(r.get("authorIdAuthor"),data);
+        cq.where(p1);
+        bList = s.createQuery(cq).getResultList();
+        s.close();
+        return bList;
+    }
+
+    public List<BookEntity> filterDataTahunTerbit(String data) {
+        List<BookEntity> bList;
+        Session s = HiberUtility.getSession();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(BookEntity.class);
+        Root<BookEntity> r = cq.from(BookEntity.class);
+        Predicate p1 = cb.greaterThan(r.get("tahunTerbit"),data);
+        cq.where(p1);
+        bList = s.createQuery(cq).getResultList();
+        s.close();
+        return bList;
+    }
+
+    public List<BookEntity> filterDataGenre(BookEntity data) {
+        List<BookEntity> bList;
+        Session s = HiberUtility.getSession();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(BookEntity.class);
+        Root<BookEntity> r = cq.from(BookEntity.class);
+        Predicate p1 = cb.equal(r.get("genreByGenreIdGenre"),data);
+        cq.where(p1);
+        bList = s.createQuery(cq).getResultList();
+        s.close();
+        return bList;
+    }
+
+    public List<BookEntity> filterDataTitle(String data) {
+        List<BookEntity> bList;
+        Session s = HiberUtility.getSession();
+        CriteriaBuilder cb = s.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(BookEntity.class);
+        Root<BookEntity> r = cq.from(BookEntity.class);
+        Predicate p1 = cb.like(r.get("title"),data);
+        cq.where(p1);
+        bList = s.createQuery(cq).getResultList();
         s.close();
         return bList;
     }

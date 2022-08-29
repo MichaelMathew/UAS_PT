@@ -71,7 +71,6 @@ public class FavoriteController {
                 VBox v2 = new VBox();
                 lbjudul.setText(judul.getTitle());
                 lbauthor.setText(author.getAuthorByAuthorIdAuthor().getNamaAuthor());
-                i1.setImage(image);
                 i1.setFitHeight(97.5);
                 i1.setFitWidth(67.5);
                 i1.setOnMouseClicked(Event ->{

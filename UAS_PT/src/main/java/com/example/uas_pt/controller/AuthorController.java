@@ -5,11 +5,16 @@ import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.model.AuthorEntity;
 import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.BookHasAuthorEntity;
+import com.example.uas_pt.model.HistoryEntity;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 public class AuthorController {
 
@@ -18,20 +23,28 @@ public class AuthorController {
     public TextArea deskripsiDetail;
     public ImageView release1;
     public Label judul1;
+    public HBox h;
     AuthorEntity author;
-    BookEntity buku;
+    ObservableList<BookHasAuthorEntity> buku;
 
     public void data(String nameAuthor, String id) {
-        Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id + ".jpg")));
         AuthorDao dao = new AuthorDao();
         BookDao bdao = new BookDao();
         author = dao.filterDataName(nameAuthor);
         name.setText(nameAuthor);
         deskripsiDetail.setWrapText(true);
         deskripsiDetail.setText(author.getDeskripsiAuthor());
-        release1.setImage(image);
-        release1.setVisible(true);
-        buku = bdao.filterData(id);
-        judul1.setText(buku.getTitle());
+        buku = FXCollections.observableArrayList(bdao.filterDataAuthor(author.getIdAuthor()));
+        for (BookHasAuthorEntity b : buku) {
+            VBox v = new VBox();
+            Label ljudul = new Label();
+            Image image = new Image(String.valueOf(getClass().getResource("/assets/" + b.getBookIdBook() + ".jpg")));
+            ImageView i1 = new ImageView();
+            i1.setImage(image);
+            ljudul.setText(b.getBookByBookIdBook().getTitle());
+            v.getChildren().add(i1);
+            v.getChildren().add(ljudul);
+            h.getChildren().add(v);
+        }
     }
 }
