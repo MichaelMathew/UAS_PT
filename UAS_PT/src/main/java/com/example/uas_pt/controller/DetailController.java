@@ -37,6 +37,7 @@ public class DetailController {
     public StackPane Content;
     public JFXButton read;
     public Boolean gmbr = false;
+    public AnchorPane anchor;
     BookEntity buku;
     BookHasAuthorEntity author;
     ObservableList<FavoriteEntity> favorite;
@@ -44,13 +45,15 @@ public class DetailController {
 
 
     public void data(String id) throws IOException {
-        Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id + ".jpg")));
+        anchor.setLayoutY(0);
+        Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id)));
         Image fav = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
         hboxstyle.setStyle("-fx-background-image: '/assets' + id + '.jpg'");
         BookDao bdao = new BookDao();
         AuthorDao dao = new AuthorDao();
-        buku = bdao.filterData(id);
-        author = dao.filterData(id);
+        String idBuku[] = id.split("[.]");
+        buku = bdao.filterData(idBuku[0]);
+        author = dao.filterData(idBuku[0]);
         judulDetail.setText(buku.getTitleAndTahunTerbit());
         genreDetail.setText(buku.getGenreByGenreIdGenre().getNamaGenre());
         ratingDetail.setText(String.valueOf(buku.getRating()));
@@ -93,11 +96,7 @@ public class DetailController {
             }
         });
         read.setOnAction(actionEvent -> {
-            String str = image.getUrl();
-            String parts[] = str.split("/");
-            System.out.println(parts[9]);
-            String parts2[] = parts[9].split("[.]");
-            System.out.println(parts2[0]);
+            String str = image.getUrl().substring(image.getUrl().length()-9);
             HistoryDao hdao = new HistoryDao();
             history = FXCollections.observableArrayList(hdao.filterData(idUser));
             HistoryEntity h = new HistoryEntity();
@@ -108,7 +107,7 @@ public class DetailController {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("isi.fxml"));
                 Parent fxml = fxmlLoader.load();
                 IsiController ic = fxmlLoader.getController();
-                ic.data(parts2[0]);
+                ic.data(str);
                 Content.getChildren().removeAll();
                 Content.getChildren().setAll(fxml);
             } catch (IOException e) {
@@ -117,17 +116,11 @@ public class DetailController {
 
         });
         authorDetail.setOnAction(actionEvent -> {
-            String str = image.getUrl();
-            String parts[] = str.split("/");
-            System.out.println(parts[9]);
-            String parts2[] = parts[9].split("[.]");
-            System.out.println(parts2[0]);
-
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("author.fxml"));
                 Parent fxml = fxmlLoader.load();
                 AuthorController ac = fxmlLoader.getController();
-                ac.data(author.getAuthorByAuthorIdAuthor().getNamaAuthor(),parts2[0]);
+                ac.data(author.getAuthorByAuthorIdAuthor().getNamaAuthor());
                 Content.getChildren().removeAll();
                 Content.getChildren().setAll(fxml);
             } catch (IOException e) {

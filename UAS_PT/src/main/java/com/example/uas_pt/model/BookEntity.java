@@ -128,4 +128,9 @@ public class BookEntity {
     public String getTitleAndTahunTerbit(){
         return title + " (" + tahunTerbit + ")";
     }
+
+    @Override
+    public String toString() {
+        return getGenreByGenreIdGenre().getNamaGenre();
+    }
 }

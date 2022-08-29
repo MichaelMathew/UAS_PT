@@ -65,7 +65,7 @@ public class BookDao implements DaoInterface<BookEntity> {
         return bList;
     }
 
-    public List<BookEntity> filterDataGenre(BookEntity data) {
+    public List<BookEntity> filterDataGenre(GenreEntity data) {
         List<BookEntity> bList;
         Session s = HiberUtility.getSession();
         CriteriaBuilder cb = s.getCriteriaBuilder();

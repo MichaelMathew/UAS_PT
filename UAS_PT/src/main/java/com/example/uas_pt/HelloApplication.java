@@ -1,9 +1,11 @@
 package com.example.uas_pt;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -19,15 +21,19 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sample.fxml"));
         Parent root = fxmlLoader.load();
         primaryStage.initStyle(StageStyle.UNDECORATED);
-
-        root.setOnMousePressed(event -> {
-            x = event.getSceneX();
-            y = event.getSceneY();
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                x = mouseEvent.getSceneX();
+                y = mouseEvent.getSceneY();
+            }
         });
-
-        root.setOnMouseDragged(event -> {
-            primaryStage.setX(event.getScreenX() - x);
-            primaryStage.setY(event.getScreenY() - y);
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                primaryStage.setX(mouseEvent.getScreenX() - x);
+                primaryStage.setY(mouseEvent.getScreenY() - y);
+            }
         });
 
         primaryStage.setScene(new Scene(root));

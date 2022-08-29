@@ -1,5 +1,6 @@
 package com.example.uas_pt.controller;
 
+import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.AuthorDao;
 import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.model.AuthorEntity;
@@ -8,8 +9,10 @@ import com.example.uas_pt.model.BookHasAuthorEntity;
 import com.example.uas_pt.model.HistoryEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -17,6 +20,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 public class AuthorController {
 
@@ -29,7 +34,7 @@ public class AuthorController {
     AuthorEntity author;
     ObservableList<BookHasAuthorEntity> buku;
 
-    public void data(String nameAuthor, String id) {
+    public void data(String nameAuthor) {
         AuthorDao dao = new AuthorDao();
         BookDao bdao = new BookDao();
         author = dao.filterDataName(nameAuthor);
@@ -49,6 +54,19 @@ public class AuthorController {
             h.getChildren().add(v);
             i1.setFitHeight(172);
             i1.setFitWidth(102);
+            i1.setOnMouseClicked(Event ->{
+                String str = image.getUrl().substring(image.getUrl().length()-9);
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                    Parent fxml = fxmlLoader.load();
+                    DetailController dc = fxmlLoader.getController();
+                    dc.data(str);
+                    Content.getChildren().setAll(fxml);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            });
             h.setAlignment(Pos.TOP_LEFT);
             ljudul.setMaxWidth(102);
             h.setMargin(v,new Insets(0,0,0,10));

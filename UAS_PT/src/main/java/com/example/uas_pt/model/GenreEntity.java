@@ -48,4 +48,9 @@ public class GenreEntity {
         result = 31 * result + (namaGenre != null ? namaGenre.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return getNamaGenre();
+    }
 }

@@ -28,10 +28,11 @@ public class IsiController {
     private Path path;
 
     public void data(String id) {
-        Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id + ".jpg")));
+        Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id)));
         Image imageunduh = new Image(getClass().getResourceAsStream("/assets/" + "Download" + ".png"));
         BookDao dao = new BookDao();
-        buku = dao.filterData(id);
+        String idBuku[] = id.split("[.]");
+        buku = dao.filterData(idBuku[0]);
         judulth.setText(buku.getTitleAndTahunTerbit());
         unduh.setImage(imageunduh);
         imagepixel.setImage(image);
