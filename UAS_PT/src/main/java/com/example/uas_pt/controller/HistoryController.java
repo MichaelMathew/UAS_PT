@@ -113,8 +113,6 @@ public class HistoryController {
                     lbauthor.setMinWidth(230);
                     v.setSpacing(5);
                 }
-
-
         }
     }
 }

@@ -65,14 +65,22 @@ public class HomeController {
             Image image = new Image(String.valueOf(getClass().getResource("/assets/" + b.getIdBook() + ".jpg")));
             ImageView i1 = new ImageView();
             HBox hbox = new HBox();
+            HBox hbox2 = new HBox();
+            VBox v2 = new VBox();
+            Label lbjudul = new Label();
+            lbjudul.setText("asal");
             i1.setImage(image);
+            v2.getChildren().add(i1);
+            v2.getChildren().add(lbjudul);
+            hbox.getChildren().add(v2);
+            v.getChildren().add(hbox);
             i1.setFitHeight(97.5);
             i1.setFitWidth(67.5);
             i1.setOnMouseClicked(Event -> {
                 String str = image.getUrl();
                 String parts[] = str.split("/");
-                System.out.println(parts[9]);
-                String parts2[] = parts[9].split("[.]");
+                System.out.println(parts[10]);
+                String parts2[] = parts[10].split("[.]");
                 System.out.println(parts2[0]);
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
@@ -83,10 +91,7 @@ public class HomeController {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
             });
-            hbox.getChildren().add(i1);
-            Content.getChildren().add(hbox);
         }
     }
 }
