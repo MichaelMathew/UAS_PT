@@ -18,7 +18,7 @@
       <AnchorPane prefHeight="500.0" prefWidth="365.0" BorderPane.alignment="CENTER">
          <children>
             <StackPane fx:id="Content" prefHeight="515.0" prefWidth="365.0" />
-            <ImageView fx:id="close" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="335.0" AnchorPane.topAnchor="0.0">
+            <ImageView fx:id="close" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="335.0" AnchorPane.topAnchor="5.0">
                <image>
                   <Image url="@../../../assets/close.png" />
                </image>
