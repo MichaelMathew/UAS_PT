@@ -67,16 +67,16 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                            <children>
-                              <Label fx:id="judul" prefHeight="20.0" prefWidth="220.0" text="Judul">
+                              <Label fx:id="judul" prefHeight="20.0" prefWidth="220.0" text="Judul" visible="false">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Label>
-                              <Label fx:id="genre" prefHeight="20.0" prefWidth="219.0" text="Genre">
+                              <Label fx:id="genre" prefHeight="20.0" prefWidth="219.0" text="Genre" visible="false">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <JFXTextArea fx:id="description" focusColor="WHITE" unFocusColor="WHITE">
+                              <JFXTextArea fx:id="description" editable="false" focusColor="WHITE" unFocusColor="WHITE">
                                  <VBox.margin>
                                     <Insets bottom="5.0" top="5.0" />
                                  </VBox.margin>
