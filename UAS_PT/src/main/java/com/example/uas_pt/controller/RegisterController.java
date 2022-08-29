@@ -2,6 +2,7 @@ package com.example.uas_pt.controller;
 
 import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.UserDao;
+import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.UserEntity;
 import com.google.gson.Gson;
 import javafx.collections.FXCollections;
@@ -87,6 +88,7 @@ public class RegisterController {
                 String json = g.toJson(u);
                 writer.write(json);
                 writer.close();
+                removejson();
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
                 Parent fxml = fxmlLoader.load();
                 Content.getChildren().removeAll();
@@ -94,5 +96,12 @@ public class RegisterController {
             }
         }
 
+    }
+    public void removejson() throws IOException {
+        BufferedWriter writer;
+        String filename = "User/dataBook.txt";
+        writer = new BufferedWriter(new FileWriter(filename));
+        writer.write("");
+        writer.close();
     }
 }

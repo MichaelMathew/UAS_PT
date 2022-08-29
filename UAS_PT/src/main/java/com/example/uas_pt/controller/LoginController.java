@@ -76,6 +76,7 @@ public class LoginController {
                     String json = g.toJson(user2);
                     writer.write(json);
                     writer.close();
+                    removejson();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
                     Parent fxml = fxmlLoader.load();
                     Content.getChildren().removeAll();
@@ -92,6 +93,14 @@ public class LoginController {
         Parent fxml = fxmlLoader.load();
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
+    }
+
+    public void removejson() throws IOException {
+        BufferedWriter writer;
+        String filename = "User/dataBook.txt";
+        writer = new BufferedWriter(new FileWriter(filename));
+        writer.write("");
+        writer.close();
     }
 
 

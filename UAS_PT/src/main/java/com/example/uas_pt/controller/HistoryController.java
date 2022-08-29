@@ -81,16 +81,12 @@ public class HistoryController {
                     i1.setFitHeight(97.5);
                     i1.setFitWidth(67.5);
                     i1.setOnMouseClicked(Event ->{
-                        String str = image.getUrl();
-                        String parts[] = str.split("/");
-                        System.out.println(parts[9]);
-                        String parts2[] = parts[9].split("[.]");
-                        System.out.println(parts2[0]);
+                        String str = image.getUrl().substring(image.getUrl().length()-9);
                         try {
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
                             Parent fxml = fxmlLoader.load();
                             DetailController dc = fxmlLoader.getController();
-                            dc.data(parts2[0]);
+                            dc.data(str);
                             Content.getChildren().setAll(fxml);
                         } catch (IOException e) {
                             throw new RuntimeException(e);

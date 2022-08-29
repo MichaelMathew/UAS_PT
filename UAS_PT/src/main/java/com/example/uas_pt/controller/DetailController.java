@@ -20,10 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class DetailController {
     public Label judulDetail;
@@ -42,18 +39,20 @@ public class DetailController {
     BookHasAuthorEntity author;
     ObservableList<FavoriteEntity> favorite;
     ObservableList<HistoryEntity> history;
+    ObservableList<BookEntity> book;
 
 
     public void data(String id) throws IOException {
         anchor.setLayoutY(0);
         Image image = new Image(String.valueOf(getClass().getResource("/assets/" + id)));
         Image fav = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
-        hboxstyle.setStyle("-fx-background-image: '/assets' + id + '.jpg'");
+        hboxstyle.setStyle("-fx-background-image: '/assets' + id");
         BookDao bdao = new BookDao();
         AuthorDao dao = new AuthorDao();
         String idBuku[] = id.split("[.]");
-        buku = bdao.filterData(idBuku[0]);
-        author = dao.filterData(idBuku[0]);
+        String idBook = idBuku[0];
+        buku = bdao.filterData(idBook);
+        author = dao.filterData(idBook);
         judulDetail.setText(buku.getTitleAndTahunTerbit());
         genreDetail.setText(buku.getGenreByGenreIdGenre().getNamaGenre());
         ratingDetail.setText(String.valueOf(buku.getRating()));
@@ -72,7 +71,7 @@ public class DetailController {
         FavoriteDao fdao = new FavoriteDao();
         favorite = FXCollections.observableArrayList(fdao.filterData(idUser));
         for (FavoriteEntity f: favorite) {
-            if (f.getBookIdBook().equals(id)){
+            if (f.getBookIdBook().equals(idBook)){
                 Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "FavoriteAdded" + ".png"));
                 btnFavorite.setImage(favpress);
                 gmbr = true;
@@ -84,13 +83,13 @@ public class DetailController {
                 Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
                 btnFavorite.setImage(favpress);
                 gmbr = false;
-                fdao.deleteDataQuery(idUser,id);
+                fdao.deleteDataQuery(idUser,idBook);
             } else {
                 Image favpress = new Image(getClass().getResourceAsStream("/assets/" + "FavoriteAdded" + ".png"));
                 btnFavorite.setImage(favpress);
                 gmbr = true;
                 FavoriteEntity f = new FavoriteEntity();
-                f.setBookIdBook(id);
+                f.setBookIdBook(idBook);
                 f.setUserIdUser(idUser);
                 fdao.addData(f);
             }
@@ -100,9 +99,22 @@ public class DetailController {
             HistoryDao hdao = new HistoryDao();
             history = FXCollections.observableArrayList(hdao.filterData(idUser));
             HistoryEntity h = new HistoryEntity();
-            h.setBookIdBook(id);
+            h.setBookIdBook(idBook);
             h.setUserIdUser(idUser);
             hdao.addData(h);
+            try {
+                BookEntity b = bdao.filterData(idBook);
+                BufferedWriter writer;
+                String filenames = "User/dataBook.txt";
+                writer = new BufferedWriter(new FileWriter(filenames));
+                Gson gs = new Gson();
+                String jsons = gs.toJson(b);
+                writer.write(jsons);
+                writer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("isi.fxml"));
                 Parent fxml = fxmlLoader.load();
