@@ -109,7 +109,7 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </Line>
-                  <JFXButton prefHeight="25.0" prefWidth="71.0" text="About Us" />
+                  <JFXButton fx:id="btnAboutUs" onAction="#aboutUs" prefHeight="25.0" prefWidth="71.0" text="About Us" />
                   <HBox alignment="CENTER" prefHeight="24.0" prefWidth="300.0">
                      <children>
                         <Button fx:id="logout" mnemonicParsing="false" text="Log Out" />

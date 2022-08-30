@@ -7,6 +7,7 @@ import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.HistoryEntity;
 import com.example.uas_pt.model.UserEntity;
 import com.google.gson.Gson;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -42,8 +43,7 @@ public class ProfileController {
     public Button logout;
     public JFXTextArea description;
     public ImageView btnEdit;
-
-
+    public JFXButton btnAboutUs;
 
 
     public void initialize() throws IOException {
@@ -52,11 +52,10 @@ public class ProfileController {
         reader = new BufferedReader(new FileReader(filename));
         String json = reader.readLine();
         Gson g = new Gson();
-        try{
+        try {
             readUser();
             lastSeen();
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginprofile.fxml"));
             Parent fxml = fxmlLoader.load();
             Content.getChildren().removeAll();
@@ -74,6 +73,17 @@ public class ProfileController {
                 throw new RuntimeException(e);
             }
         });
+        btnAboutUs.setOnAction(Event -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("aboutus.fxml"));
+                Parent fxml = fxmlLoader.load();
+                Content.getChildren().removeAll();
+                Content.getChildren().setAll(fxml);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
     }
 
     private void removeData() throws IOException {
@@ -146,17 +156,26 @@ public class ProfileController {
 
 
     public void onClicked(MouseEvent event) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("editprofile.fxml"));
-                Parent fxml = fxmlLoader.load();
-                Content.getChildren().setAll(fxml);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("editprofile.fxml"));
+            Parent fxml = fxmlLoader.load();
+            Content.getChildren().setAll(fxml);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
-
+    public void aboutUs(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("aboutus.fxml"));
+            Parent fxml = fxmlLoader.load();
+            Content.getChildren().setAll(fxml);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+
 
 
