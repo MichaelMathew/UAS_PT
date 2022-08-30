@@ -64,6 +64,7 @@ public class AuthorController {
             hbox1.getChildren().add(v2);
             i1.setFitHeight(172);
             i1.setFitWidth(102);
+            hbox1.setSpacing(10);
             v2.setOnMouseClicked(Event ->{
                 String str = image.getUrl().substring(image.getUrl().length()-9);
                 try {

@@ -188,7 +188,6 @@ public class HomeController {
         v.getChildren().add(hbox1);
         for (BookEntity b : buku2) {
             if (number == 3){
-//                v.setSpacing(5);
                 hbox1 = new HBox();
                 v.getChildren().add(hbox1);
                 number = 0;
