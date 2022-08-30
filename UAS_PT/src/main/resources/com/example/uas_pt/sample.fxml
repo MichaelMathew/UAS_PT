@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -51,11 +51,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton prefHeight="25.0" prefWidth="100.0" text="For You">
-                     <VBox.margin>
-                        <Insets bottom="-5.0" top="-5.0" />
-                     </VBox.margin>
-                  </JFXButton>
+                  <Label text="For You" />
                </children>
             </VBox>
             <VBox fx:id="v2" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -71,11 +67,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnHistory" prefHeight="25.0" prefWidth="100.0" text="History">
-                     <VBox.margin>
-                        <Insets bottom="-5.0" top="-5.0" />
-                     </VBox.margin>
-                  </JFXButton>
+                  <Label text="History" />
                </children>
             </VBox>
             <VBox fx:id="v3" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
@@ -91,11 +83,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnFavorite" prefHeight="25.0" prefWidth="100.0" text="Favorite">
-                     <VBox.margin>
-                        <Insets bottom="-5.0" top="-5.0" />
-                     </VBox.margin>
-                  </JFXButton>
+                  <Label text="Favorite" />
                </children>
             </VBox>
             <VBox fx:id="v4" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -111,11 +99,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnProfile" prefHeight="25.0" prefWidth="100.0" text="Profile">
-                     <VBox.margin>
-                        <Insets bottom="-5.0" top="-5.0" />
-                     </VBox.margin>
-                  </JFXButton>
+                  <Label text="Profile" />
                </children>
             </VBox>
          </children>
