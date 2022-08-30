@@ -112,7 +112,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="24.0" prefWidth="300.0">
                      <children>
-                        <Button fx:id="logout" mnemonicParsing="false" text="Log Out" />
+                        <Button onAction="#LogOut" mnemonicParsing="false" text="Log Out" />
                      </children>
                      <VBox.margin>
                         <Insets top="20.0" />

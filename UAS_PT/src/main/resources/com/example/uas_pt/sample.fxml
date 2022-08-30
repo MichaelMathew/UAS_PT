@@ -38,7 +38,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="v1" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView fx:id="imgForYou" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -51,14 +51,14 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <JFXButton onAction="#btnHome" prefHeight="25.0" prefWidth="100.0" text="For You">
+                  <JFXButton prefHeight="25.0" prefWidth="100.0" text="For You">
                      <VBox.margin>
                         <Insets bottom="-5.0" top="-5.0" />
                      </VBox.margin>
                   </JFXButton>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            <VBox fx:id="v2" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
                   <ImageView fx:id="imgHistory" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -78,7 +78,7 @@
                   </JFXButton>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+            <VBox fx:id="v3" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                <children>
                   <ImageView fx:id="imgFavorite" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -98,7 +98,7 @@
                   </JFXButton>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <VBox fx:id="v4" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
                   <ImageView fx:id="imgProfile" fitHeight="91.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>

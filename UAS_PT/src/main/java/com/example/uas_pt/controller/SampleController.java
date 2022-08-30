@@ -3,7 +3,10 @@ package com.example.uas_pt.controller;
 import com.example.uas_pt.HelloApplication;
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +17,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.*;
 import java.net.URL;
@@ -31,14 +37,20 @@ public class SampleController implements Initializable {
     public JFXButton btnHistory;
     public JFXButton btnFavorite;
     public JFXButton btnProfile;
+    public VBox v1;
+    public VBox v2;
+    public VBox v3;
+    public VBox v4;
     @FXML
     private ImageView close;
     public Integer idUser;
     public Label label1;
-
+    private Stage primaryStage;
+    double x,y = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        primaryStage = new Stage();
         Image imagefy = new Image(getClass().getResourceAsStream("/assets/" + "ForYou" + ".png"));
         Image imagehy = new Image(getClass().getResourceAsStream("/assets/" + "History" + ".png"));
         Image imagefv = new Image(getClass().getResourceAsStream("/assets/" + "Favorite" + ".png"));
@@ -49,11 +61,32 @@ public class SampleController implements Initializable {
         imgFavorite.setImage(imagefv);
         imgProfile.setImage(imagepf);
         close.setImage(imagecs);
-        label1 = new Label();
-        Platform.runLater(() -> {
-            label1.setText(String.valueOf(idUser));
+        v1.setOnMouseClicked(event-> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
+                Parent fxml = fxmlLoader.load();
+                Content.getChildren().removeAll();
+                Content.getChildren().setAll(fxml);
+                Content.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        x = mouseEvent.getSceneX();
+                        y = mouseEvent.getSceneY();
+                    }
+                });
+                Content.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        primaryStage.setX(mouseEvent.getScreenX() - x);
+                        System.out.println(x);
+                        primaryStage.setY(mouseEvent.getScreenY() - y);
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         });
-        System.out.println(label1.getText());
         close.setOnMouseClicked(event-> {
             try {
                 removedataUser();
@@ -72,15 +105,6 @@ public class SampleController implements Initializable {
         } catch (IOException e) {
             Logger.getLogger(SampleController.class.getName()).log(Level.SEVERE,null,e);
         }
-    }
-
-    public void btnHome(javafx.event.ActionEvent actionEvent) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
-        Parent fxml = fxmlLoader.load();
-        Content.getChildren().removeAll();
-        Content.getChildren().setAll(fxml);
-
     }
 
     public void btnHistory(javafx.event.ActionEvent actionEvent) throws IOException {
