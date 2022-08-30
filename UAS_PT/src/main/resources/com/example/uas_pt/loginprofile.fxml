@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.ProfileController">
+   <children>
+      <StackPane fx:id="Content" prefHeight="515.0" prefWidth="365.0">
+         <children>
+            <VBox prefHeight="380.0" prefWidth="300.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="334.0" prefWidth="346.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="334.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Login First">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" text="Login">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label prefHeight="20.0" prefWidth="102.0" text="General">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="20.0" prefWidth="102.0" text="Version - 0.0.1">
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Line endX="245.0" startX="-100.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Line>
+                  <JFXButton prefHeight="25.0" prefWidth="71.0" text="About Us" />
+                  <HBox alignment="CENTER" prefHeight="24.0" prefWidth="300.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
