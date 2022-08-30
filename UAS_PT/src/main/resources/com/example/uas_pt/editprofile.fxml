@@ -110,14 +110,6 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="24.0" prefWidth="300.0">
-                     <children>
-                        <Button onAction="#LogOut" mnemonicParsing="false" text="Log Out" />
-                     </children>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </HBox>
                </children>
             </VBox>
          </children>
