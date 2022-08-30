@@ -67,14 +67,96 @@ public class SampleController implements Initializable {
                 Parent fxml = fxmlLoader.load();
                 Content.getChildren().removeAll();
                 Content.getChildren().setAll(fxml);
-                Content.setOnMousePressed(new EventHandler<MouseEvent>() {
+                fxml.setOnMousePressed(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         x = mouseEvent.getSceneX();
+                        System.out.println(x);
                         y = mouseEvent.getSceneY();
                     }
                 });
-                Content.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                fxml.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        primaryStage.setX(mouseEvent.getScreenX() - x);
+                        System.out.println(x);
+                        primaryStage.setY(mouseEvent.getScreenY() - y);
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+        v2.setOnMouseClicked(event-> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("history.fxml"));
+                Parent fxml = fxmlLoader.load();
+                Content.getChildren().removeAll();
+                Content.getChildren().setAll(fxml);
+                fxml.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        x = mouseEvent.getSceneX();
+                        System.out.println(x);
+                        y = mouseEvent.getSceneY();
+                    }
+                });
+                fxml.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        primaryStage.setX(mouseEvent.getScreenX() - x);
+                        System.out.println(x);
+                        primaryStage.setY(mouseEvent.getScreenY() - y);
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+        v3.setOnMouseClicked(event-> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("favorite.fxml"));
+                Parent fxml = fxmlLoader.load();
+                Content.getChildren().removeAll();
+                Content.getChildren().setAll(fxml);
+                fxml.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        x = mouseEvent.getSceneX();
+                        System.out.println(x);
+                        y = mouseEvent.getSceneY();
+                    }
+                });
+                fxml.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        primaryStage.setX(mouseEvent.getScreenX() - x);
+                        System.out.println(x);
+                        primaryStage.setY(mouseEvent.getScreenY() - y);
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+        v4.setOnMouseClicked(event-> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
+                Parent fxml = fxmlLoader.load();
+                Content.getChildren().removeAll();
+                Content.getChildren().setAll(fxml);
+                fxml.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        x = mouseEvent.getSceneX();
+                        System.out.println(x);
+                        y = mouseEvent.getSceneY();
+                    }
+                });
+                fxml.setOnMouseDragged(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         primaryStage.setX(mouseEvent.getScreenX() - x);
