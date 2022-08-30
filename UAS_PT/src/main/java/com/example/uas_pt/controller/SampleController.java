@@ -1,6 +1,7 @@
 package com.example.uas_pt.controller;
 
 import com.example.uas_pt.HelloApplication;
+import com.google.gson.Gson;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -14,7 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -54,6 +55,12 @@ public class SampleController implements Initializable {
         });
         System.out.println(label1.getText());
         close.setOnMouseClicked(event-> {
+            try {
+                removedataUser();
+                removedataBook();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             System.exit(0);
         });
 
@@ -92,16 +99,42 @@ public class SampleController implements Initializable {
     }
 
     public void btnProfile(javafx.event.ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
-        Parent fxml = fxmlLoader.load();
-        Content.getChildren().removeAll();
-        Content.getChildren().setAll(fxml);
-//        ProfileController pc = fxmlLoader.getController();
-//        pc.data(Integer.parseInt(label1.getText()));
+        BufferedReader reader;
+        String filename = "User/data.txt";
+        reader = new BufferedReader(new FileReader(filename));
+        String json = reader.readLine();
+        Gson g = new Gson();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
+            Parent fxml = fxmlLoader.load();
+            Content.getChildren().removeAll();
+            Content.getChildren().setAll(fxml);
+        }
+        catch (NullPointerException e){
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginprofile.fxml"));
+            Parent fxml = fxmlLoader.load();
+            Content.getChildren().removeAll();
+            Content.getChildren().setAll(fxml);
+        }
+
     }
 
     public void setUser(Integer idUser) {
         this.idUser = idUser;
     }
 
+    public void removedataUser() throws IOException {
+        BufferedWriter writer;
+        String filename = "User/data.txt";
+        writer = new BufferedWriter(new FileWriter(filename));
+        writer.write("");
+        writer.close();
+    }
+    public void removedataBook() throws IOException {
+        BufferedWriter writer;
+        String filename = "User/dataBook.txt";
+        writer = new BufferedWriter(new FileWriter(filename));
+        writer.write("");
+        writer.close();
+    }
 }

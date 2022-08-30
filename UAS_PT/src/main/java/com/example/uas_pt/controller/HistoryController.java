@@ -43,23 +43,24 @@ public class HistoryController {
         reader = new BufferedReader(new FileReader(filename));
         String json = reader.readLine();
         Gson g = new Gson();
-        UserEntity dataUser = g.fromJson(json, UserEntity.class);
-        int idUser = dataUser.getIdUser();
-        history = FXCollections.observableArrayList(dao.filterData(idUser));
-        reader.close();
-        Label lbHistory = new Label();
-        lbHistory.setText("History");
-        lbHistory.setStyle("-fx-font-family: System; -fx-font-size: 22px;");
-        Content.getChildren().add(lbHistory);
-        Content.setAlignment(Pos.TOP_LEFT);
-        Content.setMargin(lbHistory,new Insets(10,0,0,10));
-        if (history.size() == 0){
-            HBox hbox = new HBox();
-            Label empty = new Label("Empty History");
-            hbox.getChildren().add(empty);
-            hbox.setAlignment(Pos.CENTER);
-            Content.getChildren().add(hbox);
-        } else {
+        try{
+            UserEntity dataUser = g.fromJson(json, UserEntity.class);
+            int idUser = dataUser.getIdUser();
+            history = FXCollections.observableArrayList(dao.filterData(idUser));
+            reader.close();
+            Label lbHistory = new Label();
+            lbHistory.setText("History");
+            lbHistory.setStyle("-fx-font-family: System; -fx-font-size: 22px;");
+            Content.getChildren().add(lbHistory);
+            Content.setAlignment(Pos.TOP_LEFT);
+            Content.setMargin(lbHistory,new Insets(10,0,0,10));
+            if (history.size() == 0){
+                HBox hbox = new HBox();
+                Label empty = new Label("Empty History");
+                hbox.getChildren().add(empty);
+                hbox.setAlignment(Pos.CENTER);
+                Content.getChildren().add(hbox);
+            } else {
                 scPan.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                 scPan.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                 fhistory = FXCollections.observableArrayList(dao.filterData(idUser));
@@ -80,7 +81,7 @@ public class HistoryController {
                     i1.setImage(image);
                     i1.setFitHeight(97.5);
                     i1.setFitWidth(67.5);
-                    i1.setOnMouseClicked(Event ->{
+                    hbox.setOnMouseClicked(Event ->{
                         String str = image.getUrl().substring(image.getUrl().length()-9);
                         try {
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
@@ -91,7 +92,6 @@ public class HistoryController {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-
                     });
                     v.setMaxHeight(149);
                     v.setMaxWidth(84);
@@ -109,6 +109,20 @@ public class HistoryController {
                     lbauthor.setMinWidth(230);
                     v.setSpacing(5);
                 }
+            }
+        }
+        catch (NullPointerException e){
+            Label lbHistory = new Label();
+            lbHistory.setText("History");
+            lbHistory.setStyle("-fx-font-family: System; -fx-font-size: 22px;");
+            Content.getChildren().add(lbHistory);
+            Content.setAlignment(Pos.TOP_LEFT);
+            Content.setMargin(lbHistory,new Insets(10,0,0,10));
+            HBox hbox = new HBox();
+            Label empty = new Label("Empty History");
+            hbox.getChildren().add(empty);
+            hbox.setAlignment(Pos.CENTER);
+            Content.getChildren().add(hbox);
         }
     }
 }

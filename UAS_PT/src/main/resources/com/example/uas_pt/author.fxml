@@ -44,11 +44,11 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox fx:id="h" alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
+                  <VBox fx:id="v" alignment="CENTER" prefHeight="85.0" prefWidth="300.0">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
-                  </HBox>
+                  </VBox>
                   </children>
                </VBox>
             </children>

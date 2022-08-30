@@ -30,7 +30,7 @@ public class AuthorController {
     public TextArea deskripsiDetail;
     public ImageView release1;
     public Label judul1;
-    public HBox h;
+    public VBox v;
     AuthorEntity author;
     ObservableList<BookHasAuthorEntity> buku;
 
@@ -42,19 +42,29 @@ public class AuthorController {
         deskripsiDetail.setWrapText(true);
         deskripsiDetail.setText(author.getDeskripsiAuthor());
         buku = FXCollections.observableArrayList(bdao.filterDataAuthor(author.getIdAuthor()));
+        int number = 0;
+        HBox hbox1 = new HBox();
+        v.getChildren().add(hbox1);
         for (BookHasAuthorEntity b : buku) {
-            VBox v = new VBox();
+            if (number == 3){
+//                v.setSpacing(5);
+                hbox1 = new HBox();
+                v.getChildren().add(hbox1);
+                number = 0;
+            }
+            VBox v2 = new VBox();
             Label ljudul = new Label();
             Image image = new Image(String.valueOf(getClass().getResource("/assets/" + b.getBookIdBook() + ".jpg")));
             ImageView i1 = new ImageView();
             i1.setImage(image);
             ljudul.setText(b.getBookByBookIdBook().getTitle());
-            v.getChildren().add(i1);
-            v.getChildren().add(ljudul);
-            h.getChildren().add(v);
+            v2.getChildren().add(i1);
+            v2.getChildren().add(ljudul);
+            v2.setSpacing(5);
+            hbox1.getChildren().add(v2);
             i1.setFitHeight(172);
             i1.setFitWidth(102);
-            i1.setOnMouseClicked(Event ->{
+            v2.setOnMouseClicked(Event ->{
                 String str = image.getUrl().substring(image.getUrl().length()-9);
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
@@ -65,11 +75,11 @@ public class AuthorController {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
             });
-            h.setAlignment(Pos.TOP_LEFT);
+            v.setAlignment(Pos.TOP_LEFT);
             ljudul.setMaxWidth(102);
-            h.setMargin(v,new Insets(0,0,0,10));
+            v.setMargin(hbox1,new Insets(0,0,0,10));
+            number++;
         }
     }
 }

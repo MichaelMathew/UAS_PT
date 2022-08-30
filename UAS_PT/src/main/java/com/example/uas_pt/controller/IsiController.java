@@ -3,6 +3,7 @@ package com.example.uas_pt.controller;
 import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.model.BookEntity;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -34,8 +35,32 @@ public class IsiController {
         String idBuku[] = id.split("[.]");
         buku = dao.filterData(idBuku[0]);
         judulth.setText(buku.getTitleAndTahunTerbit());
+        judulth.setOnMouseClicked(Event ->{
+            String str = image.getUrl().substring(image.getUrl().length()-9);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                Parent fxml = fxmlLoader.load();
+                DetailController dc = fxmlLoader.getController();
+                dc.data(str);
+                Content.getChildren().setAll(fxml);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         unduh.setImage(imageunduh);
         imagepixel.setImage(image);
+        imagepixel.setOnMouseClicked(Event ->{
+            String str = image.getUrl().substring(image.getUrl().length()-9);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                Parent fxml = fxmlLoader.load();
+                DetailController dc = fxmlLoader.getController();
+                dc.data(str);
+                Content.getChildren().setAll(fxml);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         deskripsiDetail.setWrapText(true);
         deskripsiDetail.setText(buku.getContent());
         unduh.setOnMouseClicked(event-> {

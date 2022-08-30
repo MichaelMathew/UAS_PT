@@ -2,10 +2,12 @@ package com.example.uas_pt.controller;
 
 import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.BookDao;
+import com.example.uas_pt.dao.FavoriteDao;
 import com.example.uas_pt.dao.GenreDao;
 import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.GenreEntity;
 import com.example.uas_pt.model.HistoryEntity;
+import com.google.gson.Gson;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,7 +26,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Optional;
 
 public class HomeController {
     public ScrollPane scPan;
@@ -105,7 +109,6 @@ public class HomeController {
         LibraryBook();
     }
     public void BookfilterGenre(ObservableList<BookEntity> buku3){
-        System.out.println(buku3.size());
             HBox hbox = new HBox();
             v.getChildren().add(hbox);
             int numbers = 0;
@@ -130,17 +133,46 @@ public class HomeController {
                 i1.setFitHeight(172);
                 i1.setFitWidth(102);
                 i1.setOnMouseClicked(Event -> {
-                    String str = image.getUrl().substring(image.getUrl().length()-9);
+                    BufferedReader reader;
+                    String filename = "User/data.txt";
                     try {
-                        scPan.setVvalue(0);
-                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                        Parent fxml = fxmlLoader.load();
-                        DetailController dc = fxmlLoader.getController();
-                        dc.data(str);
-                        Content.getChildren().setAll(fxml);
+                        reader = new BufferedReader(new FileReader(filename));
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        String json = reader.readLine();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    try {
+                        Gson g = new Gson();
+                        String str = image.getUrl().substring(image.getUrl().length()-9);
+                        try {
+                            scPan.setVvalue(0);
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                            Parent fxml = fxmlLoader.load();
+                            DetailController dc = fxmlLoader.getController();
+                            dc.data(str);
+                            Content.getChildren().setAll(fxml);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    catch (NullPointerException e){
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "Please Login First !",ButtonType.OK,ButtonType.CANCEL);
+                        Optional<ButtonType> answer = alert.showAndWait();
+                        if (answer.get() == ButtonType.OK) {
+                            try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+                                Parent fxml = fxmlLoader.load();
+                                Content.getChildren().setAll(fxml);
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        }
+                    }
+
                 });
                 numbers ++;
             }
@@ -175,18 +207,47 @@ public class HomeController {
             hbox1.getChildren().add(v2);
             i.setFitHeight(172);
             i.setFitWidth(102);
-            i.setOnMouseClicked(Event -> {
-                String str = image.getUrl().substring(image.getUrl().length()-9);
+            v2.setOnMouseClicked(Event -> {
+                BufferedReader reader;
+                String filename = "User/data.txt";
                 try {
-                    scPan.setVvalue(0);
-                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                    Parent fxml = fxmlLoader.load();
-                    DetailController dc = fxmlLoader.getController();
-                    dc.data(str);
-                    Content.getChildren().setAll(fxml);
+                    reader = new BufferedReader(new FileReader(filename));
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    String json = reader.readLine();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                try {
+                    Gson g = new Gson();
+                    String str = image.getUrl().substring(image.getUrl().length()-9);
+                    try {
+                        scPan.setVvalue(0);
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                        Parent fxml = fxmlLoader.load();
+                        DetailController dc = fxmlLoader.getController();
+                        dc.data(str);
+                        Content.getChildren().setAll(fxml);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                catch (NullPointerException e){
+                    Alert alert = new Alert(Alert.AlertType.WARNING, "Please Login First !",ButtonType.OK,ButtonType.CANCEL);
+                    Optional<ButtonType> answer = alert.showAndWait();
+                    if (answer.get() == ButtonType.OK) {
+                        try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+                            Parent fxml = fxmlLoader.load();
+                            Content.getChildren().setAll(fxml);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                }
+
             });
             number ++;
         }
@@ -217,16 +278,44 @@ public class HomeController {
             i1.setFitHeight(172);
             i1.setFitWidth(102);
             i1.setOnMouseClicked(Event -> {
-                String str = image.getUrl().substring(image.getUrl().length()-9);
+                BufferedReader reader;
+                String filename = "User/data.txt";
                 try {
-                    scPan.setVvalue(0);
-                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
-                    Parent fxml = fxmlLoader.load();
-                    DetailController dc = fxmlLoader.getController();
-                    dc.data(str);
-                    Content.getChildren().setAll(fxml);
+                    reader = new BufferedReader(new FileReader(filename));
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    String json = reader.readLine();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
+                }
+                try {
+                    Gson g = new Gson();
+                    String str = image.getUrl().substring(image.getUrl().length()-9);
+                    try {
+                        scPan.setVvalue(0);
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("detail.fxml"));
+                        Parent fxml = fxmlLoader.load();
+                        DetailController dc = fxmlLoader.getController();
+                        dc.data(str);
+                        Content.getChildren().setAll(fxml);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                catch (NullPointerException e){
+                    Alert alert = new Alert(Alert.AlertType.WARNING, "Please Login First !",ButtonType.OK,ButtonType.CANCEL);
+                    Optional<ButtonType> answer = alert.showAndWait();
+                    if (answer.get() == ButtonType.OK) {
+                        try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+                            Parent fxml = fxmlLoader.load();
+                            Content.getChildren().setAll(fxml);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
                 }
             });
             numbers ++;

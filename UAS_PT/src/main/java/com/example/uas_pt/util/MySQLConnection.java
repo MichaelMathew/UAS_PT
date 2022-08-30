@@ -10,11 +10,6 @@ public class MySQLConnection {
         Connection conn;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-//            conn = DriverManager.getConnection(
-//                    "jdbc:mysql://13.214.43.159:3306/librarydb",
-//                    "admindbs",
-//                    ""
-//            );
             conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/librarydb",
                     "root",

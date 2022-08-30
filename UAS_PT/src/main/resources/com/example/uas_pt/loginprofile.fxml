@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.ProfileController">
+<AnchorPane prefHeight="500.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uas_pt.controller.LoginProfileController">
    <children>
       <StackPane fx:id="Content" prefHeight="515.0" prefWidth="365.0">
          <children>
@@ -29,7 +29,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" text="Login">
+                              <Button onAction="#Login" mnemonicParsing="false" text="Login">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>

@@ -47,15 +47,25 @@ public class ProfileController {
 
 
     public void initialize() throws IOException {
-        readUser();
-        lastSeen();
+        BufferedReader reader;
+        String filename = "User/data.txt";
+        reader = new BufferedReader(new FileReader(filename));
+        String json = reader.readLine();
+        Gson g = new Gson();
+        try{
+            readUser();
+            lastSeen();
+        }
+        catch (NullPointerException e){
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginprofile.fxml"));
+            Parent fxml = fxmlLoader.load();
+            Content.getChildren().removeAll();
+            Content.getChildren().setAll(fxml);
+        }
         logout.setOnAction(actionEvent -> {
             try {
-                BufferedWriter writer;
-                String filename = "User/dataBook.txt";
-                writer = new BufferedWriter(new FileWriter(filename));
-                writer.write("");
-                writer.close();
+                removeData();
+                removeDataBook();
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
                 Parent fxml = fxmlLoader.load();
                 Content.getChildren().removeAll();
@@ -63,17 +73,20 @@ public class ProfileController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            try {
-                removejson();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
         });
     }
 
-    private void removejson() throws IOException {
+    private void removeData() throws IOException {
         BufferedWriter writer;
         String filename = "User/data.txt";
+        writer = new BufferedWriter(new FileWriter(filename));
+        writer.write("");
+        writer.close();
+    }
+
+    private void removeDataBook() throws IOException {
+        BufferedWriter writer;
+        String filename = "User/dataBook.txt";
         writer = new BufferedWriter(new FileWriter(filename));
         writer.write("");
         writer.close();
