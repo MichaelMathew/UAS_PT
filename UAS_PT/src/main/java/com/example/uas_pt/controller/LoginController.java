@@ -68,7 +68,7 @@ public class LoginController {
             md5pw = sb.toString();
             user2 = dao.filterData(email.getText(),md5pw);
                 if (user2 != null){
-                    user2.setPassword(null);
+//                    user2.setPassword(null);
                     BufferedWriter writer;
                     String filename = "User/data.txt";
                     writer = new BufferedWriter(new FileWriter(filename));

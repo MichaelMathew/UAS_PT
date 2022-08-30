@@ -31,17 +31,26 @@ public class EditProfileController {
     }
 
     public void onSave(ActionEvent event) throws IOException {
+        BufferedReader reader;
+        String filename = "User/data.txt";
+        reader = new BufferedReader(new FileReader(filename));
+        String json = reader.readLine();
+        Gson g = new Gson();
+        UserEntity dataUser = g.fromJson(json, UserEntity.class);
         updData = new UserEntity();
         UserDao dao = new UserDao();
+        updData.setIdUser(dataUser.getIdUser());
         updData.setName(txtName.getText());
         updData.setEmail(txtEmail.getText());
+        updData.setPassword(dataUser.getPassword());
         dao.updateData(updData);
+        reader.close();
         BufferedWriter writer;
-        String filename = "User/data.txt";
-        writer = new BufferedWriter(new FileWriter(filename));
-        Gson g = new Gson();
-        String json = g.toJson(updData);
-        writer.write(json);
+        String file = "User/data.txt";
+        writer = new BufferedWriter(new FileWriter(file));
+        Gson gson = new Gson();
+        String json2 = gson.toJson(updData);
+        writer.write(json2);
         writer.close();
         removejson();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
@@ -49,8 +58,6 @@ public class EditProfileController {
         Content.getChildren().removeAll();
         Content.getChildren().setAll(fxml);
     }
-
-
 
     private void removejson() throws IOException {
         BufferedWriter writer;

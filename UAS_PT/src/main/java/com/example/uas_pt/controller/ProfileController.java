@@ -63,10 +63,21 @@ public class ProfileController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            try {
+                removejson();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 
-
+    private void removejson() throws IOException {
+        BufferedWriter writer;
+        String filename = "User/data.txt";
+        writer = new BufferedWriter(new FileWriter(filename));
+        writer.write("");
+        writer.close();
+    }
 
     public void readUser() throws IOException {
         BufferedReader reader;
