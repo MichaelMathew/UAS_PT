@@ -32,9 +32,6 @@ public class LoginController {
     ObservableList<UserEntity> user;
     UserEntity user2;
 
-    public Integer IdUser;
-    private Stage stage;
-
     UserDao dao;
     public void initialize(){
         dao = new UserDao();

@@ -4,9 +4,7 @@ import com.example.uas_pt.HelloApplication;
 import com.example.uas_pt.dao.AuthorDao;
 import com.example.uas_pt.dao.BookDao;
 import com.example.uas_pt.model.AuthorEntity;
-import com.example.uas_pt.model.BookEntity;
 import com.example.uas_pt.model.BookHasAuthorEntity;
-import com.example.uas_pt.model.HistoryEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +45,6 @@ public class AuthorController {
         v.getChildren().add(hbox1);
         for (BookHasAuthorEntity b : buku) {
             if (number == 3){
-//                v.setSpacing(5);
                 hbox1 = new HBox();
                 v.getChildren().add(hbox1);
                 number = 0;

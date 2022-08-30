@@ -78,18 +78,18 @@ public class BookDao implements DaoInterface<BookEntity> {
         return bList;
     }
 
-    public List<BookEntity> filterDataTitle(String data) {
-        List<BookEntity> bList;
-        Session s = HiberUtility.getSession();
-        CriteriaBuilder cb = s.getCriteriaBuilder();
-        CriteriaQuery cq = cb.createQuery(BookEntity.class);
-        Root<BookEntity> r = cq.from(BookEntity.class);
-        Predicate p1 = cb.like(r.get("title"),data);
-        cq.where(p1);
-        bList = s.createQuery(cq).getResultList();
-        s.close();
-        return bList;
-    }
+//    public List<BookEntity> filterDataTitle(String data) {
+//        List<BookEntity> bList;
+//        Session s = HiberUtility.getSession();
+//        CriteriaBuilder cb = s.getCriteriaBuilder();
+//        CriteriaQuery cq = cb.createQuery(BookEntity.class);
+//        Root<BookEntity> r = cq.from(BookEntity.class);
+//        Predicate p1 = cb.like(r.get("title"),data);
+//        cq.where(p1);
+//        bList = s.createQuery(cq).getResultList();
+//        s.close();
+//        return bList;
+//    }
 
     @Override
     public int addData(BookEntity data) {

@@ -102,7 +102,6 @@ public class HistoryController {
                     v2.getChildren().add(lbjudul);
                     v2.getChildren().add(lbauthor);
                     hbox.setMargin(v2,new Insets(5,5,5,10));
-//                    v2.setMargin(lbjudul,new Insets(5,5,5,10));
                     lbjudul.setStyle("-fx-font-family: System; -fx-font-size: 14px;-fx-font-weight: bold");
                     lbjudul.setMinWidth(230);
                     lbauthor.setStyle("-fx-font-family: System; -fx-font-size: 12px;");

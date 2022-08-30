@@ -34,7 +34,6 @@ import java.util.Optional;
 
 public class HomeController {
     public ScrollPane scPan;
-    public JFXComboBox cmbGenre;
 
     public VBox v;
     public StackPane Content;
@@ -79,8 +78,6 @@ public class HomeController {
                 newReleaseBook();
                 GenreEntity bukucmb = (GenreEntity) cmbGenre.getSelectionModel().getSelectedItem();
                 ObservableList<BookEntity> buku3 = FXCollections.observableArrayList(dao.filterDataGenre(bukucmb));
-
-                System.out.println(buku3);
                 Label lblibrarys = new Label();
                 lblibrarys.setText("Library");
                 lblibrarys.setStyle("-fx-font-family: System; -fx-font-size: 16px;-fx-font-weight: bold");
@@ -93,7 +90,6 @@ public class HomeController {
                 h.setMargin(cmbGenre,new Insets(0,0,0,0));
                 v.setMargin(h,new Insets(20,10,0,10));
                 BookfilterGenre(buku3);
-                System.out.println(buku);
             }
 
         });
@@ -141,12 +137,11 @@ public class HomeController {
                         throw new RuntimeException(e);
                     }
                     try {
-                        String json = reader.readLine();
+                        reader.readLine();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                     try {
-                        Gson g = new Gson();
                         String str = image.getUrl().substring(image.getUrl().length()-9);
                         try {
                             scPan.setVvalue(0);
@@ -215,12 +210,11 @@ public class HomeController {
                     throw new RuntimeException(e);
                 }
                 try {
-                    String json = reader.readLine();
+                    reader.readLine();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 try {
-                    Gson g = new Gson();
                     String str = image.getUrl().substring(image.getUrl().length()-9);
                     try {
                         scPan.setVvalue(0);
@@ -257,7 +251,6 @@ public class HomeController {
         int numbers = 0;
         for (BookEntity b : buku) {
             if (numbers == 3){
-//                v.setSpacing(5);
                 hbox = new HBox();
                 v.getChildren().add(hbox);
                 numbers = 0;
@@ -285,12 +278,11 @@ public class HomeController {
                     throw new RuntimeException(e);
                 }
                 try {
-                    String json = reader.readLine();
+                    reader.readLine();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 try {
-                    Gson g = new Gson();
                     String str = image.getUrl().substring(image.getUrl().length()-9);
                     try {
                         scPan.setVvalue(0);

@@ -67,10 +67,4 @@ public class EditProfileController {
         writer.close();
     }
 
-    public void LogOut(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
-        Parent fxml = fxmlLoader.load();
-        Content.getChildren().removeAll();
-        Content.getChildren().setAll(fxml);
-    }
 }

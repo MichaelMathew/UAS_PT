@@ -50,8 +50,7 @@ public class ProfileController {
         BufferedReader reader;
         String filename = "User/data.txt";
         reader = new BufferedReader(new FileReader(filename));
-        String json = reader.readLine();
-        Gson g = new Gson();
+        reader.readLine();
         try {
             readUser();
             lastSeen();
