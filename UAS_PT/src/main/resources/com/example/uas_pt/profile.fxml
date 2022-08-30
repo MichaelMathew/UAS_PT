@@ -24,7 +24,7 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="127.0" prefWidth="301.0">
                            <children>
-                              <ImageView fitHeight="85.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btnEdit" fitHeight="85.0" fitWidth="80.0" onMouseClicked="#onClicked" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../assets/profile.png" />
                                  </image>

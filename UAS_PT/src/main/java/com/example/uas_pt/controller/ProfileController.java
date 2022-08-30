@@ -12,13 +12,16 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 import java.io.*;
@@ -38,16 +41,12 @@ public class ProfileController {
     public Label genre;
     public Button logout;
     public JFXTextArea description;
+    public ImageView btnEdit;
 
-    UserEntity user;
 
-    ObservableList<HistoryEntity> fhistory;
-    String fn;
 
 
     public void initialize() throws IOException {
-        HistoryDao hdao = new HistoryDao();
-        UserDao dao = new UserDao();
         readUser();
         lastSeen();
         logout.setOnAction(actionEvent -> {
@@ -66,16 +65,20 @@ public class ProfileController {
             }
         });
     }
+
+
+
     public void readUser() throws IOException {
         BufferedReader reader;
         String filename = "User/data.txt";
-            reader = new BufferedReader(new FileReader(filename));
-            String json = reader.readLine();
-            Gson g = new Gson();
-            UserEntity dataUser = g.fromJson(json, UserEntity.class);
+        reader = new BufferedReader(new FileReader(filename));
+        String json = reader.readLine();
+        Gson g = new Gson();
+        UserEntity dataUser = g.fromJson(json, UserEntity.class);
         name.setText(dataUser.getName());
         email.setText(dataUser.getEmail());
         reader.close();
+
     }
 
     public void lastSeen() throws IOException {
@@ -83,7 +86,7 @@ public class ProfileController {
         BufferedReader reader;
         reader = new BufferedReader(new FileReader(filename));
         Gson g = new Gson();
-        try{
+        try {
             String json = reader.readLine();
             BookEntity buku = g.fromJson(json, BookEntity.class);
             judul.setText(buku.getTitle());
@@ -105,8 +108,7 @@ public class ProfileController {
                     throw new RuntimeException(e);
                 }
             });
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             judul.setText("");
             judul.setVisible(false);
             description.setText("");
@@ -117,6 +119,19 @@ public class ProfileController {
         }
         reader.close();
     }
+
+
+    public void onClicked(MouseEvent event) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("editprofile.fxml"));
+                Parent fxml = fxmlLoader.load();
+                Content.getChildren().setAll(fxml);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        
+    }
+
 
 }
 
