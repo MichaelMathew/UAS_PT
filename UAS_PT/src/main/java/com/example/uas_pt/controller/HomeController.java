@@ -128,7 +128,7 @@ public class HomeController {
                 hbox.getChildren().add(v2);
                 i1.setFitHeight(172);
                 i1.setFitWidth(102);
-                i1.setOnMouseClicked(Event -> {
+                v2.setOnMouseClicked(Event -> {
                     BufferedReader reader;
                     String filename = "User/data.txt";
                     try {
@@ -269,7 +269,7 @@ public class HomeController {
             hbox.getChildren().add(v2);
             i1.setFitHeight(172);
             i1.setFitWidth(102);
-            i1.setOnMouseClicked(Event -> {
+            v2.setOnMouseClicked(Event -> {
                 BufferedReader reader;
                 String filename = "User/data.txt";
                 try {

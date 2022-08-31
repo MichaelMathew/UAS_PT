@@ -9,7 +9,7 @@ public class HiberUtility {
 
     public static Session getSession() {
         Session s;
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
+        SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         s = sf.openSession();
         return s;
     }
