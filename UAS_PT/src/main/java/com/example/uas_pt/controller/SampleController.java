@@ -189,41 +189,6 @@ public class SampleController implements Initializable {
         }
     }
 
-    public void btnHistory(javafx.event.ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("history.fxml"));
-        Parent fxml = fxmlLoader.load();
-        Content.getChildren().removeAll();
-        Content.getChildren().setAll(fxml);
-
-    }
-
-    public void btnFavorite(javafx.event.ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("favorite.fxml"));
-        Parent fxml = fxmlLoader.load();
-        Content.getChildren().removeAll();
-        Content.getChildren().setAll(fxml);
-    }
-
-    public void btnProfile(javafx.event.ActionEvent actionEvent) throws IOException {
-        BufferedReader reader;
-        String filename = "User/data.txt";
-        reader = new BufferedReader(new FileReader(filename));
-        String json = reader.readLine();
-        Gson g = new Gson();
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
-            Parent fxml = fxmlLoader.load();
-            Content.getChildren().removeAll();
-            Content.getChildren().setAll(fxml);
-        }
-        catch (NullPointerException e){
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginprofile.fxml"));
-            Parent fxml = fxmlLoader.load();
-            Content.getChildren().removeAll();
-            Content.getChildren().setAll(fxml);
-        }
-
-    }
 
     public void setUser(Integer idUser) {
         this.idUser = idUser;
